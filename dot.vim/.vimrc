@@ -41,6 +41,8 @@ Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/vimfiler'
 Bundle 'Shougo/unite.vim'
 
+Bundle 'Lokaltog/vim-powerline'
+
 "encoding
 set enc=utf-8
 set fenc=utf-8
@@ -86,3 +88,6 @@ let g:neocomplcache_min_syntax_length = 3
 
 " Disable Pydiction in default
 let g:pydiction_location=''
+
+" vim-powerline
+let g:Powerline_symbols = 'fancy'
