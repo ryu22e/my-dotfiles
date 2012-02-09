@@ -92,3 +92,6 @@ let g:pydiction_location=''
 
 " vim-powerline
 let g:Powerline_symbols = 'fancy'
+
+" Key for buffers
+noremap <C-j> <C-^>
