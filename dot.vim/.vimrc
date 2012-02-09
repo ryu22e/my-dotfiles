@@ -5,6 +5,7 @@ set rtp+=~/.vim/vundle/
 call vundle#rc()
 
 syntax on
+set laststatus=2
 set number
 set autoindent
 set expandtab
