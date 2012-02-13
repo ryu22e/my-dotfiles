@@ -9,6 +9,14 @@ if [ -f $HOME/.alias ]; then
     source $HOME/.alias
 fi
 
+# complement
+fpath=($HOME/.zsh/functions $HOME/.zsh/zsh-completions $fpath)
+autoload -U compinit promptinit
+compinit
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion::complete:*' use-cache 1
+setopt list_packed
+
 # cd and other commands dereference symlinks
 #
 setopt chase_links
