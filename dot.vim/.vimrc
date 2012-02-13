@@ -95,3 +95,6 @@ let g:Powerline_symbols = 'fancy'
 
 " Key for buffers
 noremap <C-j> <C-^>
+
+" Move the cursor to the end of the previous line
+:au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
