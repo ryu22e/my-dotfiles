@@ -9,7 +9,6 @@ set laststatus=2
 set number
 set autoindent
 set expandtab
-set incsearch
 set ignorecase
 set wildmenu
 set showmatch
@@ -102,3 +101,9 @@ noremap <C-j> <C-^>
 " vimgrep
 set grepformat=%f:%l:%m,%f:%l%m,%f\ \ %l%m,%f
 set grepprg=grep\ -nh
+
+" incsearch
+set incsearch
+if has("migemo")
+    set migemo
+endif
