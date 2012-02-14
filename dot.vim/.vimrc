@@ -98,3 +98,7 @@ noremap <C-j> <C-^>
 
 " Move the cursor to the end of the previous line
 :au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
+
+" vimgrep
+set grepformat=%f:%l:%m,%f:%l%m,%f\ \ %l%m,%f
+set grepprg=grep\ -nh
