@@ -107,3 +107,6 @@ set incsearch
 if has("migemo")
     set migemo
 endif
+
+" Select pasted text in visual mode
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
