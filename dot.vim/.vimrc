@@ -116,3 +116,6 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " Insert Date
 cnoremap <expr> <C-X>dt strftime('%Y%m%d')
+
+" Insert Time
+cnoremap <expr> <C-X>ts strftime('%Y%m%d%H%M')
