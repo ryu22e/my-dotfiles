@@ -137,3 +137,15 @@ let g:yankring_window_height = 13
 nnoremap <silent> cy ce<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
 vnoremap <silent> cy c<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
 nnoremap <silent> ciy ciw<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
+
+" F5 = Open command history
+nnoremap <F5> <Esc>q:
+" F6 = Search history
+nnoremap <F6> <Esc>q/
+" Disable q:
+nnoremap q: <Nop>
+" Disable q/
+nnoremap q/ <Nop>
+" Disable q?
+nnoremap q? <Nop>
+
