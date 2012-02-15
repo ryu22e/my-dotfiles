@@ -42,6 +42,7 @@ Bundle 'Gist.vim'
 Bundle 'PHP-dictionary'
 Bundle 'Pydiction'
 Bundle 'YankRing.vim'
+Bundle 'matchit.zip'
 
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/vimfiler'
@@ -149,3 +150,7 @@ nnoremap q/ <Nop>
 " Disable q?
 nnoremap q? <Nop>
 
+" matchit.vim
+runtime macros/matchit.vim
+let b:match_words = &matchpairs . "\<if\>:\<end if\>,\<if\>:\<endif\>"
+let b:match_ignorecase = 1
