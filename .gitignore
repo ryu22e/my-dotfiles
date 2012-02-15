@@ -1,2 +1,3 @@
 dot.zsh/.zsh/functions/_brew
 dot.vim/.vim/bundle
+*.swp
