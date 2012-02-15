@@ -36,6 +36,7 @@ Bundle 'cake.vim'
 Bundle 'Gist.vim'
 Bundle 'PHP-dictionary'
 Bundle 'Pydiction'
+Bundle 'YankRing.vim'
 
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/vimfiler'
@@ -119,3 +120,10 @@ cnoremap <expr> <C-X>dt strftime('%Y%m%d')
 
 " Insert Time
 cnoremap <expr> <C-X>ts strftime('%Y%m%d%H%M')
+
+" YankRing
+let g:yankring_history_dir = expand('$HOME')
+let g:yankring_history_file = '.yankring_history'
+noremap <silent> <F7> :YRShow<CR>
+let g:yankring_max_history = 10
+let g:yankring_window_height = 13
