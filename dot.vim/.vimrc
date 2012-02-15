@@ -113,3 +113,6 @@ nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " Edit temporary file
 :command! OpenTempfile :edit `=tempname()`
+
+" Insert Date
+cnoremap <expr> <C-X>dt strftime('%Y%m%d')
