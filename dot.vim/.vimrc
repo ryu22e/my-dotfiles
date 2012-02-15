@@ -132,3 +132,8 @@ let g:yankring_history_file = '.yankring_history'
 noremap <silent> <F7> :YRShow<CR>
 let g:yankring_max_history = 10
 let g:yankring_window_height = 13
+
+" Replace the word under the cursor with the yanked text
+nnoremap <silent> cy ce<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
+vnoremap <silent> cy c<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
+nnoremap <silent> ciy ciw<C-r>0<ESC>:let@/=@1<CR>:noh<CR>
