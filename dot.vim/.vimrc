@@ -30,6 +30,7 @@ set smartindent
 set textwidth=0
 set backspace=indent,eol,start
 set ruler
+set hlsearch
 highlight zenkakuda ctermbg=7
 match zenkakuda /　/
 filetype plugin indent on
