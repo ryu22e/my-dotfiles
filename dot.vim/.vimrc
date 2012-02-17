@@ -155,3 +155,6 @@ nnoremap q? <Nop>
 runtime macros/matchit.vim
 let b:match_words = &matchpairs . "\<if\>:\<end if\>,\<if\>:\<endif\>"
 let b:match_ignorecase = 1
+
+" Reset hlsearch
+nnoremap <ESC><ESC> :nohlsearch<CR>
