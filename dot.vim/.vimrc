@@ -180,3 +180,7 @@ endfunction
 
 " Justify
 runtime macros/justify.vim
+
+" Indent
+vnoremap < <gv
+vnoremap > >gv
