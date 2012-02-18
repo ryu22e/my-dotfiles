@@ -46,6 +46,7 @@ Bundle 'YankRing.vim'
 Bundle 'matchit.zip'
 Bundle 'speeddating.vim'
 Bundle 'abolish.vim'
+Bundle 'Justify'
 
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/vimfiler'
@@ -176,3 +177,6 @@ endfunction
 function! Sha256(data)
     return hashlib#sha1(a:data)
 endfunction
+
+" Justify
+runtime macros/justify.vim
