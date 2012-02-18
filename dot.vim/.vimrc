@@ -53,6 +53,8 @@ Bundle 'Shougo/unite.vim'
 
 Bundle 'Lokaltog/vim-powerline'
 
+Bundle 'ynkdir/vim-funlib'
+
 "encoding
 set enc=utf-8
 set fenc=utf-8
@@ -160,3 +162,17 @@ let b:match_ignorecase = 1
 
 " Reset hlsearch
 nnoremap <ESC><ESC> :nohlsearch<CR>
+
+" vim-funlib
+function! Random(a, b)
+    return random#randint(a:a, a:b)
+endfunction
+function! MD5(data)
+    return hashlib#md5(a:data)
+endfunction
+function! Sha1(data)
+    return hashlib#sha1(a:data)
+endfunction
+function! Sha256(data)
+    return hashlib#sha1(a:data)
+endfunction
