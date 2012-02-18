@@ -45,6 +45,7 @@ Bundle 'Pydiction'
 Bundle 'YankRing.vim'
 Bundle 'matchit.zip'
 Bundle 'speeddating.vim'
+Bundle 'abolish.vim'
 
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/vimfiler'
