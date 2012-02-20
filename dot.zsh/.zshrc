@@ -1,14 +1,6 @@
 autoload -U compinit
 compinit
 
-if [ -f $HOME/.env ]; then
-   source $HOME/.env 
-fi
-
-if [ -f $HOME/.alias ]; then
-    source $HOME/.alias
-fi
-
 # complement
 fpath=($HOME/.zsh/functions $HOME/.zsh/zsh-completions $fpath)
 autoload -U compinit promptinit
