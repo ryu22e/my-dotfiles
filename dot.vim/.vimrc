@@ -63,6 +63,8 @@ Bundle 'tsukkee/unite-tag'
 
 Bundle 'tomtom/tcomment_vim'
 
+Bundle 'thinca/vim-ref'
+
 "encoding
 set enc=utf-8
 set fenc=utf-8
@@ -191,3 +193,10 @@ runtime macros/justify.vim
 " Indent
 vnoremap < <gv
 vnoremap > >gv
+
+" ref.vim
+if has("win32") || has("win64")
+    let g:ref_phpmanual_path = 'C:\phpmanual'
+else
+    let g:ref_phpmanual_path = '/phpmanual'
+endif
