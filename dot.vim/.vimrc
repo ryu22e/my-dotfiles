@@ -200,3 +200,5 @@ if has("win32") || has("win64")
 else
     let g:ref_phpmanual_path = '/phpmanual'
 endif
+nmap ,rp :<C-u>Ref phpmanual<Space>
+nmap ,ra :<C-u>Ref alc<Space>
