@@ -56,6 +56,8 @@ Bundle 'Lokaltog/vim-powerline'
 
 Bundle 'ynkdir/vim-funlib'
 
+Bundle 'tpope/vim-surround'
+
 "encoding
 set enc=utf-8
 set fenc=utf-8
