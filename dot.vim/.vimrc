@@ -59,6 +59,8 @@ Bundle 'ynkdir/vim-funlib'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 
+Bundle 'tsukkee/unite-tag'
+
 "encoding
 set enc=utf-8
 set fenc=utf-8
