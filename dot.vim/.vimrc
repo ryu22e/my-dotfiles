@@ -51,6 +51,8 @@ Bundle 'Justify'
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/vimfiler'
 Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/vimproc'
+Bundle 'Shougo/vimshell'
 
 Bundle 'Lokaltog/vim-powerline'
 
