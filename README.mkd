@@ -1,0 +1,13 @@
+# Setup vimproc
+
+After 'BundleInstall', compile vimproc.
+
+## Linux
+
+    cd $HOME/.vim/bundle/vimproc
+    make -f make_gcc.mak
+
+## Mac
+
+    cd $HOME/.vim/bundle/vimproc
+    make -f make_mac.mak
