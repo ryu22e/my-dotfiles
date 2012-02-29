@@ -47,6 +47,7 @@ Bundle 'matchit.zip'
 Bundle 'speeddating.vim'
 Bundle 'abolish.vim'
 Bundle 'Justify'
+Bundle 'smartchr'
 
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/vimfiler'
@@ -204,3 +205,9 @@ else
 endif
 nmap ,rp :<C-u>Ref phpmanual<Space>
 nmap ,ra :<C-u>Ref alc<Space>
+
+" smartchr
+inoremap <expr> = smartchr#loop(' = ', '=', ' == ', ' === ')
+inoremap <expr> , smartchr#loop(', ', ',')
+autocmd FileType c,cpp inoremap <buffer> <expr> . smartchr#loop('.', '->', '...')
+cnoremap <expr> / smartchr#loop('/', '~/', '//', {'ctype': ':'})
