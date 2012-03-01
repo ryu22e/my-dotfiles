@@ -68,6 +68,8 @@ Bundle 'tomtom/tcomment_vim'
 
 Bundle 'thinca/vim-ref'
 
+Bundle 'taku-o/vim-toggle'
+
 "encoding
 set enc=utf-8
 set fenc=utf-8
