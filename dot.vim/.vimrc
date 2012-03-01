@@ -70,6 +70,8 @@ Bundle 'thinca/vim-ref'
 
 Bundle 'taku-o/vim-toggle'
 
+Bundle 'mattn/zencoding-vim'
+
 "encoding
 set enc=utf-8
 set fenc=utf-8
