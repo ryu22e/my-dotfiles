@@ -210,4 +210,4 @@ nmap ,ra :<C-u>Ref alc<Space>
 inoremap <expr> = smartchr#loop(' = ', '=', ' == ', ' === ')
 inoremap <expr> , smartchr#loop(', ', ',')
 autocmd FileType c,cpp inoremap <buffer> <expr> . smartchr#loop('.', '->', '...')
-cnoremap <expr> / smartchr#loop('/', '~/', '//', {'ctype': ':'})
+autocmd FileType php inoremap <buffer> <expr> . smartchr#loop('.', '->')
