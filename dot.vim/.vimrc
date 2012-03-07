@@ -211,9 +211,12 @@ nmap ,rp :<C-u>Ref phpmanual<Space>
 nmap ,ra :<C-u>Ref alc<Space>
 
 " smartchr
-inoremap <expr> = smartchr#loop(' = ', '=', ' == ', ' === ')
-inoremap <expr> : smartchr#loop(':', ': ', '=>')
-inoremap <expr> , smartchr#loop(', ', ',')
+autocmd FileType c,cpp,ruby,perl,python,php,javascript inoremap <buffer> <expr> = smartchr#loop(' = ', '=', ' == ', ' === ')
+autocmd FileType c,cpp,ruby,perl,python,php,javascript inoremap <expr> : smartchr#loop(':', ': ', '=>')
+autocmd FileType c,cpp,ruby,perl,python,php,javascript inoremap <expr> , smartchr#loop(', ', ',')
+autocmd FileType ctp inoremap <buffer> <expr> = smartchr#loop('=', ' = ', ' == ', ' === ')
+autocmd FileType ctp inoremap <expr> : smartchr#loop(':', ': ', '=>')
+autocmd FileType ctp inoremap <expr> , smartchr#loop(', ', ',')
 autocmd FileType c,cpp inoremap <buffer> <expr> . smartchr#loop('.', '->', '...')
 autocmd FileType php inoremap <buffer> <expr> . smartchr#loop('.', '->')
 
