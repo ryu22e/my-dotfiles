@@ -261,3 +261,6 @@ let g:user_zen_settings = {
             \}, 
 \}
 let g:use_zen_complete_tag = 1
+
+" unite.vim
+imap <C-k> <Plug>(neocomplcache_start_unite_complete)
