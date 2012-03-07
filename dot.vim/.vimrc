@@ -253,6 +253,9 @@ let g:user_zen_settings = {
             \       'php:tag' : "<?php\n\t${cursor}\n?>",
             \   },
             \},
+            \'ctp' : {
+            \   'filters' : 'php',
+            \},
             \'css' : {
             \   'filters' : 'fc', 
             \}, 
