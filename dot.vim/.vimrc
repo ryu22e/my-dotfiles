@@ -246,6 +246,13 @@ let g:user_zen_settings = {
             \       'tm' : "setTimeout(function() {\n\t${cursor}\n}, 100);",
             \   },
             \},
+            \'php' : {
+            \   'filters' : 'php, html',
+            \   'indentation' : '    ',
+            \   'snippets' : {
+            \       'php:tag' : "<?php\n\t${cursor}\n?>",
+            \   },
+            \},
             \'css' : {
             \   'filters' : 'fc', 
             \}, 
