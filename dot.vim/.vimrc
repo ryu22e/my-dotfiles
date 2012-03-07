@@ -247,3 +247,4 @@ let g:user_zen_settings = {
             \   'filters' : 'fc', 
             \}, 
 \}
+let g:use_zen_complete_tag = 1
