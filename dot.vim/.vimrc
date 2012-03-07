@@ -224,7 +224,13 @@ autocmd FileType php inoremap <buffer> <expr> . smartchr#loop('.', '->')
 let g:user_zen_settings = {
             \'lang' : 'ja',
             \'html' : {
-            \   'indentation' : '    '
+            \   'indentation' : '    ',
+            \   'snippets' : {
+            \       'flash' : "<object data=\"${cursor}\""
+            \               ." type=\"application/x-shockwave-flash\""
+            \               ." id=\"\" width=\"\" height=\"\">\n"
+            \               ."<param name=\"movie\" value=\"\" />\n</object>",
+            \       },
             \  },
             \'css' : {
             \   'filters' : 'fc', 
