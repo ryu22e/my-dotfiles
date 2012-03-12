@@ -39,15 +39,6 @@ if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
 # pythonbrew
 if [[ -s $HOME/.pythonbrew/etc/bashrc ]]; then source $HOME/.pythonbrew/etc/bashrc ; fi
 
-# virtualenv
-if [[ -s $HOME/.py_version ]]; then
-    source $HOME/.py_version ;
-    if [[ -s $HOME/.python$PY_VERSION/bin/activate ]]; then 
-        source $HOME/.python$PY_VERSION/bin/activate 
-        ; 
-    fi
-fi
-
 ## Environment variable configuration
 #
 # LANG
