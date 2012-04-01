@@ -67,6 +67,7 @@ Bundle 'tsukkee/unite-tag'
 Bundle 'tomtom/tcomment_vim'
 
 Bundle 'thinca/vim-ref'
+Bundle 'thinca/vim-localrc'
 
 Bundle 'taku-o/vim-toggle'
 
