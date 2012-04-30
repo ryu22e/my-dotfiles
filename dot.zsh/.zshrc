@@ -36,9 +36,6 @@ setopt nolistbeep
 if [[ -s $HOME/perl5/perlbrew/etc/bashrc ]] ; then source $HOME/perl5/perlbrew/etc/bashrc ; fi
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
 
-# pythonbrew
-if [[ -s $HOME/.pythonbrew/etc/bashrc ]]; then source $HOME/.pythonbrew/etc/bashrc ; fi
-
 ## Environment variable configuration
 #
 # LANG
