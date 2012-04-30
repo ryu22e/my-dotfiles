@@ -61,6 +61,7 @@ Bundle 'ynkdir/vim-funlib'
 
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-fugitive'
 
 Bundle 'tsukkee/unite-tag'
 
