@@ -5,7 +5,7 @@ After 'BundleInstall', compile vimproc.
 ## Linux
 
     cd $HOME/.vim/bundle/vimproc
-    make -f make_gcc.mak
+    make -f make_unix.mak
 
 ## Mac
 
