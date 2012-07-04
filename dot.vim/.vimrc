@@ -38,7 +38,6 @@ filetype plugin indent on
 Bundle 'gmarik/vundle'
 Bundle 'git-commit'
 Bundle 'quickrun.vim'
-Bundle 'cake.vim'
 Bundle 'Gist.vim'
 Bundle 'PHP-dictionary'
 Bundle 'Pydiction'
@@ -75,6 +74,10 @@ Bundle 'taku-o/vim-toggle'
 Bundle 'mattn/zencoding-vim'
 
 Bundle "kchmck/vim-coffee-script"
+
+if 703 < v:version
+    Bundle 'cake.vim'
+endif
 
 "encoding
 set enc=utf-8
