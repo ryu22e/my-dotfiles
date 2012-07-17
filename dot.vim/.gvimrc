@@ -1,7 +1,7 @@
 set showtabline=2
 set transparency=10
 set antialias
-set guifont=Ricty:h14
+set guifont=Ricty:h18
 colorscheme evening
 
 if has("gui_running")
