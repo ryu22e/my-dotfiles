@@ -6,3 +6,5 @@ set guifont=Ricty:h14
 if has("gui_running")
   set fuoptions=maxvert,maxhorz
 endif
+
+Bundle 'pyflakes.vim'
