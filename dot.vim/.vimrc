@@ -75,6 +75,10 @@ Bundle 'mattn/zencoding-vim'
 
 Bundle "kchmck/vim-coffee-script"
 
+if has('python')
+    Bundle 'pyflakes.vim'
+endif
+
 if 703 < v:version
     Bundle 'cake.vim'
 endif
