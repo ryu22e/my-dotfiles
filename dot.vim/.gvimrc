@@ -6,7 +6,7 @@ colorscheme evening
 
 if has("gui_running")
   set fuoptions=maxvert,maxhorz
-  set lines=60 columns=220
+  set lines=60 columns=150
 endif
 
 Bundle 'pyflakes.vim'
