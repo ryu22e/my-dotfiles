@@ -99,6 +99,7 @@ let g:vimfiler_safe_mode_by_default = 0
 " template
 :autocmd BufNewFile  *.pl      0r ~/.vim/template/skeleton.pl
 :autocmd BufNewFile  *.py      0r ~/.vim/template/skeleton.py
+:autocmd BufNewFile  *.rb      0r ~/.vim/template/skeleton.rb
 :autocmd BufNewFile  *.html      0r ~/.vim/template/skeleton.html
 :autocmd BufNewFile *.user.js   0r ~/.vim/template/skeleton.user.js
 :autocmd BufNewFile *.php   0r ~/.vim/template/skeleton.php
