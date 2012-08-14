@@ -207,3 +207,5 @@ function rprompt-git-current-branch {
 setopt prompt_subst
 
 RPROMPT='[`rprompt-git-current-branch`%~]'
+
+REPORTTIME=3
