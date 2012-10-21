@@ -79,7 +79,7 @@ if has('python')
     Bundle 'pyflakes.vim'
 endif
 
-if 703 < v:version
+if v:version > 703
     Bundle 'cake.vim'
 endif
 
