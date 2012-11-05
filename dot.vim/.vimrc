@@ -251,10 +251,10 @@ let g:user_zen_settings = {
             \'javascript' : {
             \   'indentation' : '  ',
             \   'snippets' : {
-            \       'jq' : "$(function() {\n\t${cursor}${child}\n});",
-            \       'jq:each' : "$.each(${cursor}, function(index, item){\n\t${child}\n});",
-            \       'jq:click' : "$(${cursor}).click(function() {\n\t${child}\n});",
-            \       'jq:ajax' : "$.ajax(${cursor}, {\n\t\n}).success(function(data) {\n\t\n}).error(function(xhr, textStatus, errorThrown) {\n\t\n});",
+            \       'jq' : "\\$(function() {\n\t${cursor}${child}\n});",
+            \       'jq:each' : "\\$.each(${cursor}, function(index, item){\n\t${child}\n});",
+            \       'jq:click' : "\\$(${cursor}).click(function() {\n\t${child}\n});",
+            \       'jq:ajax' : "\\$.ajax(${cursor}, {\n\t\n}).success(function(data) {\n\t\n}).error(function(xhr, textStatus, errorThrown) {\n\t\n});",
             \       'fn' : "(function() {\n\t${cursor}\n})();",
             \       'tm' : "setTimeout(function() {\n\t${cursor}\n}, 100);",
             \   },
