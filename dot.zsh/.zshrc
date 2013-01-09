@@ -209,3 +209,10 @@ setopt prompt_subst
 RPROMPT='[`rprompt-git-current-branch`%~]'
 
 REPORTTIME=3
+
+if [[ -s $HOME/.zsh/z/z.sh ]]; then
+    source $HOME/.zsh/z/z.sh
+    function precmd () { 
+        _z --add "$(pwd -P)" 
+    }
+fi
