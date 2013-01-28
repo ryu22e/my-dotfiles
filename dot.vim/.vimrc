@@ -75,6 +75,8 @@ Bundle 'mattn/zencoding-vim'
 
 Bundle "kchmck/vim-coffee-script"
 
+Bundle "rhysd/clever-f.vim"
+
 if has('python')
     Bundle 'pyflakes.vim'
 endif
