@@ -43,6 +43,13 @@ if [[ -s $RBENV_PATH  ]]; then
     eval "$(rbenv init -)"
 fi
 
+# phpenv
+PHPENV_PATH=$HOME/.phpenv/bin
+if [[ -s $PHPENV_PATH  ]]; then
+    export PATH="$PHPENV_PATH:$PATH"
+    eval "$(phpenv init -)"
+fi
+
 ## Environment variable configuration
 #
 # LANG
