@@ -36,6 +36,13 @@ setopt nolistbeep
 if [[ -s $HOME/perl5/perlbrew/etc/bashrc ]] ; then source $HOME/perl5/perlbrew/etc/bashrc ; fi
 [[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
 
+# rbenv
+RBENV_PATH=$HOME/.rbenv/bin
+if [[ -s $RBENV_PATH  ]]; then
+    export PATH="$RBENV_PATH:$PATH"
+    eval "$(rbenv init -)"
+fi
+
 ## Environment variable configuration
 #
 # LANG
