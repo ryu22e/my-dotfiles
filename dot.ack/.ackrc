@@ -1,2 +1,3 @@
 --type-set=ctp=.ctp
 --type-set=coffee=.coffee
+--type-set=rst=.rst
