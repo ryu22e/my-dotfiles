@@ -37,9 +37,7 @@ if [[ -s $HOME/perl5/perlbrew/etc/bashrc ]] ; then source $HOME/perl5/perlbrew/e
 [[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
 
 # rbenv
-RBENV_PATH=$HOME/.rbenv/bin
-if [[ -s $RBENV_PATH  ]]; then
-    export PATH="$RBENV_PATH:$PATH"
+if [[ -s `which rbenv`  ]]; then
     eval "$(rbenv init -)"
 fi
 
