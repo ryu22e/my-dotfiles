@@ -1,9 +1,9 @@
-[submodule "dot.vim/.vim/vundle"]
-	path = dot.vim/.vim/vundle
-	url = git://github.com/gmarik/vundle.git
 [submodule "dot.zsh/.zsh/zsh-completions"]
 	path = dot.zsh/.zsh/zsh-completions
 	url = git://github.com/zsh-users/zsh-completions.git
 [submodule "dot.zsh/.zsh/z"]
 	path = dot.zsh/.zsh/z
 	url = git://github.com/rupa/z.git
+[submodule "dot.vim/.vim/bundle/neobundle.vim"]
+	path = dot.vim/.vim/bundle/neobundle.vim
+	url = https://github.com/Shougo/neobundle.vim.git

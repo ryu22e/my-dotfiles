@@ -1,13 +1,14 @@
 set nocompatible
 filetype off
 
-if has("win32") || has("win64")
-  set rtp+=~/vimfiles/vundle.git/ 
-  call vundle#rc('~/vimfiles/bundle/')
-else
-    set rtp+=~/.vim/vundle/
-    call vundle#rc()
+if has('vim_starting')
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
+
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+NeoBundleFetch 'Shougo/neobundle.vim'
 
 syntax on
 set laststatus=2
@@ -35,54 +36,54 @@ highlight zenkakuda ctermbg=7
 match zenkakuda /　/
 filetype plugin indent on
 
-Bundle 'gmarik/vundle'
-Bundle 'git-commit'
-Bundle 'quickrun.vim'
-Bundle 'Gist.vim'
-Bundle 'PHP-dictionary'
-Bundle 'Pydiction'
-Bundle 'YankRing.vim'
-Bundle 'matchit.zip'
-Bundle 'speeddating.vim'
-Bundle 'abolish.vim'
-Bundle 'Justify'
-Bundle 'smartchr'
+NeoBundle 'gmarik/vundle'
+NeoBundle 'git-commit'
+NeoBundle 'quickrun.vim'
+NeoBundle 'Gist.vim'
+NeoBundle 'PHP-dictionary'
+NeoBundle 'Pydiction'
+NeoBundle 'YankRing.vim'
+NeoBundle 'matchit.zip'
+NeoBundle 'speeddating.vim'
+NeoBundle 'abolish.vim'
+NeoBundle 'Justify'
+NeoBundle 'smartchr'
 
-Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/vimfiler'
-Bundle 'Shougo/unite.vim'
-Bundle 'Shougo/vimproc'
-Bundle 'Shougo/vimshell'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/vimfiler'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimshell'
 
-Bundle 'Lokaltog/vim-powerline'
+NeoBundle 'Lokaltog/vim-powerline'
 
-Bundle 'ynkdir/vim-funlib'
+NeoBundle 'ynkdir/vim-funlib'
 
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'tpope/vim-fugitive'
 
-Bundle 'tsukkee/unite-tag'
+NeoBundle 'tsukkee/unite-tag'
 
-Bundle 'tomtom/tcomment_vim'
+NeoBundle 'tomtom/tcomment_vim'
 
-Bundle 'thinca/vim-ref'
-Bundle 'thinca/vim-localrc'
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'thinca/vim-localrc'
 
-Bundle 'taku-o/vim-toggle'
+NeoBundle 'taku-o/vim-toggle'
 
-Bundle 'mattn/zencoding-vim'
+NeoBundle 'mattn/zencoding-vim'
 
-Bundle "kchmck/vim-coffee-script"
+NeoBundle "kchmck/vim-coffee-script"
 
-Bundle "rhysd/clever-f.vim"
+NeoBundle "rhysd/clever-f.vim"
 
 if has('python')
-    Bundle 'pyflakes.vim'
+    NeoBundle 'pyflakes.vim'
 endif
 
 if v:version > 703
-    Bundle 'cake.vim'
+    NeoBundle 'cake.vim'
 endif
 
 "encoding
