@@ -42,9 +42,7 @@ if [[ -s `which rbenv`  ]]; then
 fi
 
 # phpenv
-PHPENV_PATH=$HOME/.phpenv/bin
-if [[ -s $PHPENV_PATH  ]]; then
-    export PATH="$PHPENV_PATH:$PATH"
+if [[ -s `which phpenv`  ]]; then
     eval "$(phpenv init -)"
 fi
 
