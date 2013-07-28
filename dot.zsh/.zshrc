@@ -46,6 +46,10 @@ if [[ -s `which phpenv`  ]]; then
     eval "$(phpenv init -)"
 fi
 
+# virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+source `which virtualenvwrapper.sh`
+
 ## Environment variable configuration
 #
 # LANG
