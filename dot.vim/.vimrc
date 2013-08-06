@@ -72,7 +72,7 @@ NeoBundle 'thinca/vim-localrc'
 
 NeoBundle 'taku-o/vim-toggle'
 
-NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'mattn/emmet-vim'
 
 NeoBundle "kchmck/vim-coffee-script"
 
