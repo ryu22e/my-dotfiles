@@ -79,6 +79,7 @@ NeoBundle "rhysd/clever-f.vim"
 
 if has('python')
     NeoBundle 'pyflakes.vim'
+    NeoBundle 'davidhalter/jedi-vim'
 endif
 
 if v:version > 703
