@@ -229,3 +229,7 @@ if [[ -s $HOME/.zsh/z/z.sh ]]; then
         _z --add "$(pwd -P)" 
     }
 fi
+
+# Boxen
+[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
+[ -f /opt/boxen/nvm/nvm.sh ] && source /opt/boxen/nvm/nvm.sh
