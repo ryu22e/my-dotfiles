@@ -47,8 +47,11 @@ if [[ -s `which phpenv`  ]]; then
 fi
 
 # virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-source `which virtualenvwrapper.sh`
+VIRTUALENVWRAPPER_PATH=`which virtualenvwrapper.sh`
+if [[ -s $VIRTUALENVWRAPPER_PATH ]]; then
+    export WORKON_HOME=$HOME/.virtualenvs
+    source $VIRTUALENVWRAPPER_PATH
+fi
 
 ## Environment variable configuration
 #
