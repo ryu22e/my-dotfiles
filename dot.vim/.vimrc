@@ -77,6 +77,8 @@ NeoBundle "kchmck/vim-coffee-script"
 
 NeoBundle "rhysd/clever-f.vim"
 
+NeoBundle 'osyo-manga/vim-over'
+
 if has('python')
     NeoBundle 'pyflakes.vim'
     NeoBundle 'davidhalter/jedi-vim'
@@ -291,3 +293,6 @@ if !exists('g:neocomplete#force_omni_input_patterns')
     let g:neocomplete#force_omni_input_patterns = {}
 endif
 let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
+
+" vim-over
+nnoremap <silent> <Leader>m :OverCommandLine<CR>%s/
