@@ -1,4 +1,5 @@
 dot.zsh/.zsh/functions/_brew
 dot.vim/.vim/bundle
 *.swp
-dot.vim/.vim/**/*.vim
+dot.vim/.vim/autoload/gocomplete.vim
+dot.vim/.vim/ftplugin/go/gocomplete.vim
