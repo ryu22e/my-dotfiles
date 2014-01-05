@@ -288,3 +288,8 @@ let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 
 " vim-over
 nnoremap <silent> <Leader>m :OverCommandLine<CR>%s/
+
+" golang
+if $GOROOT != ''
+    set rtp+=$GOROOT/misc/vim
+endif
