@@ -1,4 +1,5 @@
 autoload -U compinit
+autoload -U add-zsh-hook
 compinit
 
 # complement
@@ -236,3 +237,10 @@ fi
 # Boxen
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 [ -f /opt/boxen/nvm/nvm.sh ] && source /opt/boxen/nvm/nvm.sh
+
+# zsh-notify
+ZSH_NOTIFY_HOME=$HOME/.zsh/zsh-notify
+export SYS_NOTIFIER=`which terminal-notifier`
+if [[ -d $ZSH_NOTIFY_HOME && -s $SYS_NOTIFIER ]]; then
+    source $ZSH_NOTIFY_HOME/notify.plugin.zsh
+fi
