@@ -290,3 +290,4 @@ nnoremap <silent> <Leader>m :OverCommandLine<CR>%s/
 if $GOROOT != ''
     set rtp+=$GOROOT/misc/vim
 endif
+auto BufWritePre *.go Fmt
