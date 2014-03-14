@@ -244,3 +244,9 @@ export SYS_NOTIFIER=`which terminal-notifier`
 if [[ -d $ZSH_NOTIFY_HOME && -s $SYS_NOTIFIER ]]; then
     source $ZSH_NOTIFY_HOME/notify.plugin.zsh
 fi
+
+# direnv
+DIRENV_PATH=`which direnv`
+if [[ -s $DIRENV_PATH ]]; then
+    eval "$(direnv hook zsh)"
+fi
