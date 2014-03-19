@@ -78,6 +78,8 @@ NeoBundle "rhysd/clever-f.vim"
 
 NeoBundle 'osyo-manga/vim-over'
 
+NeoBundle 'Rykka/riv.vim'
+
 if has('python')
     NeoBundle 'pyflakes.vim'
     NeoBundle 'davidhalter/jedi-vim'
