@@ -83,8 +83,8 @@ NeoBundle 'Rykka/riv.vim'
 NeoBundleLazy 'tell-k/vim-autopep8', { "autoload": { "filetypes": ['python'] } }
 
 if has('python')
-    NeoBundle 'pyflakes.vim'
-    NeoBundle 'davidhalter/jedi-vim'
+    NeoBundleLazy 'pyflakes.vim', { "autoload": { "filetypes": ['python'] } }
+    NeoBundleLazy 'davidhalter/jedi-vim', { "autoload": { "filetypes": ['python'] } }
 endif
 
 if v:version > 703
