@@ -80,6 +80,8 @@ NeoBundle 'osyo-manga/vim-over'
 
 NeoBundle 'Rykka/riv.vim'
 
+NeoBundleLazy 'tell-k/vim-autopep8', { "autoload": { "filetypes": ['python'] } }
+
 if has('python')
     NeoBundle 'pyflakes.vim'
     NeoBundle 'davidhalter/jedi-vim'
