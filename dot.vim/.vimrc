@@ -295,3 +295,10 @@ if $GOROOT != ''
     set rtp+=$GOROOT/misc/vim
 endif
 auto BufWritePre *.go Fmt
+
+" autopep8
+let s:bundle = neobundle#get("vim-autopep8")
+function! s:bundle.hooks.on_source(bundle)
+    let g:autopep8_disable_show_diff = 1
+endfunction
+unlet s:bundle
