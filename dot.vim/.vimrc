@@ -280,12 +280,16 @@ let g:use_zen_complete_tag = 1
 imap <C-k> <Plug>(neocomplcache_start_unite_complete)
 
 " jedi and neocomplcache
-autocmd FileType python setlocal omnifunc=jedi#completions
-let g:jedi#auto_vim_configuration = 0
-if !exists('g:neocomplete#force_omni_input_patterns')
-    let g:neocomplete#force_omni_input_patterns = {}
-endif
-let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
+let s:bundle = neobundle#get("jedi-vim")
+function! s:bundle.hooks.on_source(bundle)
+    autocmd FileType python setlocal omnifunc=jedi#completions
+    let g:jedi#auto_vim_configuration = 0
+    if !exists('g:neocomplete#force_omni_input_patterns')
+        let g:neocomplete#force_omni_input_patterns = {}
+    endif
+    let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
+endfunction
+unlet s:bundle
 
 " vim-over
 nnoremap <silent> <Leader>m :OverCommandLine<CR>%s/
