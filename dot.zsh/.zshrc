@@ -10,6 +10,10 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion::complete:*' use-cache 1
 setopt list_packed
 
+# disable nomatch
+#
+setopt nonomatch
+
 # cd and other commands dereference symlinks
 #
 setopt chase_links
