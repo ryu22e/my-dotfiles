@@ -82,6 +82,8 @@ NeoBundle 'Rykka/riv.vim'
 
 NeoBundleLazy 'tell-k/vim-autopep8', { "autoload": { "filetypes": ['python'] } }
 
+NeoBundleLazy 'derekwyatt/vim-scala', { "autoload": { "filetypes": ['scala'] } }
+
 if has('python')
     NeoBundleLazy 'pyflakes.vim', { "autoload": { "filetypes": ['python'] } }
     NeoBundleLazy 'davidhalter/jedi-vim', { "autoload": { "filetypes": ['python'] } }
