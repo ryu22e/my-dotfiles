@@ -46,6 +46,7 @@ NeoBundle 'speeddating.vim'
 NeoBundle 'abolish.vim'
 NeoBundle 'Justify'
 NeoBundle 'smartchr'
+NeoBundle 'clickable.vim'
 
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/vimfiler'
