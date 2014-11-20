@@ -46,7 +46,9 @@ NeoBundle 'speeddating.vim'
 NeoBundle 'abolish.vim'
 NeoBundle 'Justify'
 NeoBundle 'smartchr'
-NeoBundle 'clickable.vim'
+NeoBundle "Rykka/clickable.vim"
+NeoBundle "Rykka/clickable-things"
+NeoBundle "Rykka/os.vim"
 
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/vimfiler'
@@ -312,3 +314,6 @@ function! s:bundle.hooks.on_source(bundle)
     let g:autopep8_disable_show_diff = 1
 endfunction
 unlet s:bundle
+
+" os.vim
+call os#init()
