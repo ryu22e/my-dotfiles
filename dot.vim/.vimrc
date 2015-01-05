@@ -305,8 +305,8 @@ nnoremap <silent> <Leader>m :OverCommandLine<CR>%s/
 " golang
 if $GOROOT != ''
     set rtp+=$GOROOT/misc/vim
+    auto BufWritePre *.go Fmt
 endif
-auto BufWritePre *.go Fmt
 
 " autopep8
 let s:bundle = neobundle#get("vim-autopep8")
