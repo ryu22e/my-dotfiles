@@ -1,6 +1,13 @@
 set showtabline=2
 set antialias
-set guifont=Ricty:h18
+if has("unix")
+    set guifont=Ricty\ Diminished\ 18
+elseif has("mac")
+    set guifont=Ricty:h18
+elseif has("win32")
+    set guifont=Ricty_Diminished:h18
+endif
+set clipboard=unnamedplus,autoselect
 colorscheme evening
 
 if has('gui_macvim')
