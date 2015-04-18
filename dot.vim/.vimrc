@@ -87,6 +87,8 @@ NeoBundleLazy 'tell-k/vim-autopep8', { "autoload": { "filetypes": ['python'] } }
 
 NeoBundleLazy 'derekwyatt/vim-scala', { "autoload": { "filetypes": ['scala'] } }
 
+NeoBundleLazy 'fatih/vim-go', { "autoload": { "filetypes": ['go'] } }
+
 if has('python')
     NeoBundleLazy 'pyflakes.vim', { "autoload": { "filetypes": ['python'] } }
     NeoBundleLazy 'davidhalter/jedi-vim', { "autoload": { "filetypes": ['python'] } }
@@ -302,16 +304,17 @@ unlet s:bundle
 " vim-over
 nnoremap <silent> <Leader>m :OverCommandLine<CR>%s/
 
-" golang
-if $GOROOT != ''
-    set rtp+=$GOROOT/misc/vim
-    auto BufWritePre *.go Fmt
-endif
-
 " autopep8
 let s:bundle = neobundle#get("vim-autopep8")
 function! s:bundle.hooks.on_source(bundle)
     let g:autopep8_disable_show_diff = 1
+endfunction
+unlet s:bundle
+
+" go
+let s:bundle = neobundle#get("vim-go")
+function! s:bundle.hooks.on_source(bundle)
+    auto BufWritePre *.go GoFmt
 endfunction
 unlet s:bundle
 
