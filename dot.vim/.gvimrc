@@ -6,6 +6,9 @@ elseif has("unix")
     set guifont=Ricty\ Diminished\ 18
 elseif has("win32")
     set guifont=Ricty_Diminished:h18
+    source $VIMRUNTIME/delmenu.vim
+    set langmenu=ja_jp.utf-8
+    source $VIMRUNTIME/menu.vim
 endif
 colorscheme evening
 
