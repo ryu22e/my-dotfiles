@@ -1,9 +1,9 @@
 set showtabline=2
 set antialias
-if has("unix")
+if has("mac")
+    set guifont=Ricty\ Diminished\ Discord\ Regular:h18
+elseif has("unix")
     set guifont=Ricty\ Diminished\ 18
-elseif has("mac")
-    set guifont=Ricty:h18
 elseif has("win32")
     set guifont=Ricty_Diminished:h18
 endif
