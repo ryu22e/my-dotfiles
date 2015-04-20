@@ -7,7 +7,6 @@ elseif has("unix")
 elseif has("win32")
     set guifont=Ricty_Diminished:h18
 endif
-set clipboard=unnamedplus,autoselect
 colorscheme evening
 
 if has('gui_macvim')
