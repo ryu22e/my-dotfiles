@@ -294,10 +294,7 @@ function! s:bundle.hooks.on_source(bundle)
     if !exists('g:neocomplete#force_omni_input_patterns')
         let g:neocomplete#force_omni_input_patterns = {}
     endif
-    let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
-    " enable quickrun
-    let g:jedi#rename_command = ""
-    let g:jedi#pydoc = ""
+    let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*' " enable quickrun let g:jedi#rename_command = "" let g:jedi#pydoc = ""
 endfunction
 unlet s:bundle
 
