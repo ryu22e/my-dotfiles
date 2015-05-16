@@ -317,3 +317,8 @@ unlet s:bundle
 
 " os.vim
 call os#init()
+
+" Keymaps for linux and windows
+if !has("mac") && has("unix") || has("win32")
+    source $VIMRUNTIME/mswin.vim
+endif
