@@ -81,7 +81,7 @@ NeoBundle "rhysd/clever-f.vim"
 
 NeoBundle 'osyo-manga/vim-over'
 
-NeoBundle 'Rykka/riv.vim'
+NeoBundleLazy 'Rykka/riv.vim', { "autoload": { "filetypes": ["rst"] } }
 
 NeoBundleLazy 'tell-k/vim-autopep8', { "autoload": { "filetypes": ['python'] } }
 
