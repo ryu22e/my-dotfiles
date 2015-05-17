@@ -90,7 +90,6 @@ NeoBundleLazy 'derekwyatt/vim-scala', { "autoload": { "filetypes": ['scala'] } }
 NeoBundleLazy 'fatih/vim-go', { "autoload": { "filetypes": ['go'] } }
 
 if has('python')
-    NeoBundleLazy 'pyflakes.vim', { "autoload": { "filetypes": ['python'] } }
     NeoBundleLazy 'davidhalter/jedi-vim', { "autoload": { "filetypes": ['python'] } }
 endif
 
