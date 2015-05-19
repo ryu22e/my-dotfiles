@@ -94,10 +94,6 @@ if has('python')
     NeoBundleLazy 'davidhalter/jedi-vim', { "autoload": { "filetypes": ['python'] } }
 endif
 
-if v:version > 703
-    NeoBundle 'cake.vim'
-endif
-
 "encoding
 set enc=utf-8
 set fenc=utf-8
