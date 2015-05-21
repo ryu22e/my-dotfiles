@@ -240,45 +240,6 @@ autocmd FileType ctp inoremap <expr> , smartchr#loop(', ', ',')
 autocmd FileType c,cpp inoremap <buffer> <expr> . smartchr#loop('.', '->', '...')
 autocmd FileType php inoremap <buffer> <expr> . smartchr#loop('.', '->')
 
-" zencoding.vim
-let g:user_zen_settings = {
-            \'lang' : 'ja',
-            \'html' : {
-            \   'indentation' : '    ',
-            \   'snippets' : {
-            \       'flash' : "<object data=\"${cursor}\""
-            \               ." type=\"application/x-shockwave-flash\""
-            \               ." id=\"\" width=\"\" height=\"\">\n"
-            \               ."<param name=\"movie\" value=\"\" />\n</object>",
-            \       },
-            \  },
-            \'javascript' : {
-            \   'indentation' : '  ',
-            \   'snippets' : {
-            \       'jq' : "\\$(function() {\n\t${cursor}${child}\n});",
-            \       'jq:each' : "\\$.each(${cursor}, function(index, item){\n\t${child}\n});",
-            \       'jq:click' : "\\$(${cursor}).click(function() {\n\t${child}\n});",
-            \       'jq:ajax' : "\\$.ajax(${cursor}, {\n\t\n}).success(function(data) {\n\t\n}).error(function(xhr, textStatus, errorThrown) {\n\t\n});",
-            \       'fn' : "(function() {\n\t${cursor}\n})();",
-            \       'tm' : "setTimeout(function() {\n\t${cursor}\n}, 100);",
-            \   },
-            \},
-            \'php' : {
-            \   'filters' : 'php, html',
-            \   'indentation' : '    ',
-            \   'snippets' : {
-            \       'php:tag' : "<?php\n\t${cursor}\n?>",
-            \   },
-            \},
-            \'ctp' : {
-            \   'filters' : 'php',
-            \},
-            \'css' : {
-            \   'filters' : 'fc', 
-            \}, 
-\}
-let g:use_zen_complete_tag = 1
-
 " unite.vim
 imap <C-k> <Plug>(neocomplcache_start_unite_complete)
 
