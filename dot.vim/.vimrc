@@ -81,6 +81,8 @@ NeoBundle "rhysd/clever-f.vim"
 
 NeoBundle 'osyo-manga/vim-over'
 
+NeoBundle 'scrooloose/syntastic'
+
 NeoBundleLazy 'Rykka/riv.vim', { "autoload": { "filetypes": ["rst"] } }
 
 NeoBundleLazy 'tell-k/vim-autopep8', { "autoload": { "filetypes": ['python'] } }
@@ -321,3 +323,14 @@ call os#init()
 if !has("mac") && has("unix") || has("win32")
     source $VIMRUNTIME/mswin.vim
 endif
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
