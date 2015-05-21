@@ -74,7 +74,7 @@ NeoBundle 'taku-o/vim-toggle'
 
 NeoBundle 'mattn/emmet-vim'
 
-NeoBundle "kchmck/vim-coffee-script"
+NeoBundleLazy "kchmck/vim-coffee-script", { "autoload": { "filetypes": ["coffee"] } }
 
 NeoBundle "rhysd/clever-f.vim"
 
