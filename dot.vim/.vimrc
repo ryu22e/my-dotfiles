@@ -160,7 +160,7 @@ set grepprg=grep\ -nh
 
 " incsearch
 set incsearch
-if has("migemo")
+if has('migemo')
     set migemo
 endif
 
