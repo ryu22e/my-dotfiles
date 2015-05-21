@@ -45,9 +45,9 @@ NeoBundle 'speeddating.vim'
 NeoBundle 'abolish.vim'
 NeoBundle 'Justify'
 NeoBundle 'smartchr'
-NeoBundle "Rykka/clickable.vim"
-NeoBundle "Rykka/clickable-things"
-NeoBundle "Rykka/os.vim"
+NeoBundle 'Rykka/clickable.vim'
+NeoBundle 'Rykka/clickable-things'
+NeoBundle 'Rykka/os.vim'
 
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/vimfiler'
@@ -74,24 +74,24 @@ NeoBundle 'taku-o/vim-toggle'
 
 NeoBundle 'mattn/emmet-vim'
 
-NeoBundleLazy "kchmck/vim-coffee-script", { "autoload": { "filetypes": ["coffee"] } }
+NeoBundleLazy 'kchmck/vim-coffee-script', { 'autoload': { 'filetypes': ['coffee'] } }
 
-NeoBundle "rhysd/clever-f.vim"
+NeoBundle 'rhysd/clever-f.vim'
 
 NeoBundle 'osyo-manga/vim-over'
 
 NeoBundle 'scrooloose/syntastic'
 
-NeoBundleLazy 'Rykka/riv.vim', { "autoload": { "filetypes": ["rst"] } }
+NeoBundleLazy 'Rykka/riv.vim', { 'autoload': { 'filetypes': ['rst'] } }
 
-NeoBundleLazy 'tell-k/vim-autopep8', { "autoload": { "filetypes": ['python'] } }
+NeoBundleLazy 'tell-k/vim-autopep8', { 'autoload': { 'filetypes': ['python'] } }
 
-NeoBundleLazy 'derekwyatt/vim-scala', { "autoload": { "filetypes": ['scala'] } }
+NeoBundleLazy 'derekwyatt/vim-scala', { 'autoload': { 'filetypes': ['scala'] } }
 
-NeoBundleLazy 'fatih/vim-go', { "autoload": { "filetypes": ['go'] } }
+NeoBundleLazy 'fatih/vim-go', { 'autoload': { 'filetypes': ['go'] } }
 
 if has('python')
-    NeoBundleLazy 'davidhalter/jedi-vim', { "autoload": { "filetypes": ['python'] } }
+    NeoBundleLazy 'davidhalter/jedi-vim', { 'autoload': { 'filetypes': ['python'] } }
 endif
 
 "encoding
@@ -222,7 +222,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " ref.vim
-if has("win32") || has("win64")
+if has('win32') || has('win64')
     let g:ref_phpmanual_path = 'C:\phpmanual'
 else
     let g:ref_phpmanual_path = '/phpmanual'
@@ -283,7 +283,7 @@ let g:use_zen_complete_tag = 1
 imap <C-k> <Plug>(neocomplcache_start_unite_complete)
 
 " jedi and neocomplcache
-let s:bundle = neobundle#get("jedi-vim")
+let s:bundle = neobundle#get('jedi-vim')
 function! s:bundle.hooks.on_source(bundle)
     autocmd FileType python setlocal omnifunc=jedi#completions
     let g:jedi#auto_vim_configuration = 0
@@ -298,14 +298,14 @@ unlet s:bundle
 nnoremap <silent> <Leader>m :OverCommandLine<CR>%s/
 
 " autopep8
-let s:bundle = neobundle#get("vim-autopep8")
+let s:bundle = neobundle#get('vim-autopep8')
 function! s:bundle.hooks.on_source(bundle)
     let g:autopep8_disable_show_diff = 1
 endfunction
 unlet s:bundle
 
 " go
-let s:bundle = neobundle#get("vim-go")
+let s:bundle = neobundle#get('vim-go')
 function! s:bundle.hooks.on_source(bundle)
     auto BufWritePre *.go GoFmt
 endfunction
@@ -315,7 +315,7 @@ unlet s:bundle
 call os#init()
 
 " Keymaps for linux and windows
-if !has("mac") && has("unix") || has("win32")
+if !has('mac') && has('unix') || has('win32')
     source $VIMRUNTIME/mswin.vim
     unmap <C-V>
 endif
