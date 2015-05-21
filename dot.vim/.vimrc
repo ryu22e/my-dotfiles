@@ -40,7 +40,6 @@ NeoBundle 'gmarik/vundle'
 NeoBundle 'git-commit'
 NeoBundle 'quickrun.vim'
 NeoBundle 'Gist.vim'
-NeoBundle 'PHP-dictionary'
 NeoBundle 'matchit.zip'
 NeoBundle 'speeddating.vim'
 NeoBundle 'abolish.vim'
@@ -93,10 +92,6 @@ NeoBundleLazy 'fatih/vim-go', { "autoload": { "filetypes": ['go'] } }
 
 if has('python')
     NeoBundleLazy 'davidhalter/jedi-vim', { "autoload": { "filetypes": ['python'] } }
-endif
-
-if v:version > 703
-    NeoBundle 'cake.vim'
 endif
 
 "encoding
@@ -322,6 +317,7 @@ call os#init()
 " Keymaps for linux and windows
 if !has("mac") && has("unix") || has("win32")
     source $VIMRUNTIME/mswin.vim
+    unmap <C-V>
 endif
 
 " syntastic
