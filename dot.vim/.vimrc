@@ -37,10 +37,18 @@ match zenkakuda /　/
 filetype plugin indent on
 
 NeoBundle 'gmarik/vundle'
+
 NeoBundle 'git-commit'
+let git_diff_spawn_mode = 1
+
 NeoBundle 'quickrun.vim'
 NeoBundle 'Gist.vim'
+
 NeoBundle 'matchit.zip'
+runtime macros/matchit.vim
+let b:match_words = &matchpairs . "\<if\>:\<end if\>,\<if\>:\<endif\>"
+let b:match_ignorecase = 1
+
 NeoBundle 'speeddating.vim'
 NeoBundle 'abolish.vim'
 NeoBundle 'Justify'
@@ -50,16 +58,40 @@ NeoBundle 'Rykka/clickable-things'
 NeoBundle 'Rykka/os.vim'
 
 NeoBundle 'Shougo/neocomplcache'
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_camel_case_completion = 0
+let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_min_syntax_length = 3
+highlight Pmenu ctermbg=8
+highlight PmenuSel ctermbg=1
+highlight PmenuSbra ctermbg=0
+
 NeoBundle 'Shougo/vimfiler'
+let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_safe_mode_by_default = 0
+nnoremap <silent> ,f :VimFiler<CR>
+
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimshell'
 
 NeoBundle 'Lokaltog/vim-powerline'
+let g:Powerline_symbols = 'fancy'
 
 NeoBundle 'ynkdir/vim-funlib'
 
 NeoBundle 'tpope/vim-surround'
+" vim-surround
+let b:surround_{char2nr("v")} = "{{ \r }}"
+let b:surround_{char2nr("{")} = "{{ \r }}"
+let b:surround_{char2nr("%")} = "{% \r %}"
+let b:surround_{char2nr("b")} = "{% block \1block name: \1 %}\r{% endblock \1\1 %}"
+let b:surround_{char2nr("i")} = "{% if \1condition: \1 %}\r{% endif %}"
+let b:surround_{char2nr("w")} = "{% with \1with: \1 %}\r{% endwith %}"
+let b:surround_{char2nr("f")} = "{% for \1for loop: \1 %}\r{% endfor %}"
+let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}"
+
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-fugitive'
 
@@ -79,17 +111,40 @@ NeoBundleLazy 'kchmck/vim-coffee-script', { 'autoload': { 'filetypes': ['coffee'
 NeoBundle 'rhysd/clever-f.vim'
 
 NeoBundle 'osyo-manga/vim-over'
+nnoremap <silent> <Leader>m :OverCommandLine<CR>%s/
 
 NeoBundle 'scrooloose/syntastic'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_flake8_args = '--max-line-length=160'
+let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 
 if has('python')
     NeoBundle 'SirVer/ultisnips'
+    " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+    let g:UltiSnipsExpandTrigger='<tab>'
+    let g:UltiSnipsJumpForwardTrigger='<c-j>'
+    let g:UltiSnipsJumpBackwardTrigger='<c-p>'
+    let g:UltiSnipsListSnippets='<c-k>'
+    " If you want :UltiSnipsEdit to split your window.
+    let g:UltiSnipsEditSplit='vertical'
     NeoBundle 'honza/vim-snippets'
 endif
 
 NeoBundleLazy 'Rykka/riv.vim', { 'autoload': { 'filetypes': ['rst'] } }
 
 NeoBundleLazy 'tell-k/vim-autopep8', { 'autoload': { 'filetypes': ['python'] } }
+let s:bundle = neobundle#get('vim-autopep8')
+function! s:bundle.hooks.on_source(bundle)
+    let g:autopep8_disable_show_diff = 1
+endfunction
+unlet s:bundle
 
 NeoBundleLazy 'django.vim', { 'autoload': { 'filetypes': ['python'] } }
 
@@ -98,6 +153,11 @@ NeoBundleLazy 'jmcomets/vim-pony', { 'autoload': { 'filetypes': ['python', 'html
 NeoBundleLazy 'derekwyatt/vim-scala', { 'autoload': { 'filetypes': ['scala'] } }
 
 NeoBundleLazy 'fatih/vim-go', { 'autoload': { 'filetypes': ['go'] } }
+let s:bundle = neobundle#get('vim-go')
+function! s:bundle.hooks.on_source(bundle)
+    auto BufWritePre *.go GoFmt
+endfunction
+unlet s:bundle
 
 if has('python')
     NeoBundleLazy 'davidhalter/jedi-vim', { 'autoload': { 'filetypes': ['python'] } }
@@ -108,14 +168,6 @@ set enc=utf-8
 set fenc=utf-8
 set fencs=utf-8,iso-2022-jp,euc-jp,cp932
 set fileformats=unix,dos
-
-" git-commit.vim
-let git_diff_spawn_mode = 1
-
-" vimfiler
-let g:vimfiler_as_default_explorer = 1
-let g:vimfiler_safe_mode_by_default = 0
-nnoremap <silent> ,f :VimFiler<CR>
 
 " template
 :autocmd BufNewFile  *.pl      0r ~/.vim/template/skeleton.pl
@@ -141,21 +193,8 @@ let perl_fold=1
 let php_folding=1
 au Syntax php set fdm=syntax
 
-" neocomplcache
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_camel_case_completion = 0
-let g:neocomplcache_enable_underbar_completion = 1
-let g:neocomplcache_min_syntax_length = 3
-highlight Pmenu ctermbg=8
-highlight PmenuSel ctermbg=1
-highlight PmenuSbra ctermbg=0
-
 " Disable Pydiction in default
 let g:pydiction_location=''
-
-" vim-powerline
-let g:Powerline_symbols = 'fancy'
 
 " Key for buffers
 noremap <C-j> <C-^>
@@ -200,11 +239,6 @@ nnoremap q: <Nop>
 nnoremap q/ <Nop>
 " Disable q?
 nnoremap q? <Nop>
-
-" matchit.vim
-runtime macros/matchit.vim
-let b:match_words = &matchpairs . "\<if\>:\<end if\>,\<if\>:\<endif\>"
-let b:match_ignorecase = 1
 
 " Reset hlsearch
 nnoremap <ESC><ESC> :nohlsearch<CR>
@@ -264,40 +298,11 @@ function! s:bundle.hooks.on_source(bundle)
 endfunction
 unlet s:bundle
 
-" vim-over
-nnoremap <silent> <Leader>m :OverCommandLine<CR>%s/
-
-" autopep8
-let s:bundle = neobundle#get('vim-autopep8')
-function! s:bundle.hooks.on_source(bundle)
-    let g:autopep8_disable_show_diff = 1
-endfunction
-unlet s:bundle
-
-" go
-let s:bundle = neobundle#get('vim-go')
-function! s:bundle.hooks.on_source(bundle)
-    auto BufWritePre *.go GoFmt
-endfunction
-unlet s:bundle
-
 " Keymaps for linux and windows
 if !has('mac') && has('unix') || has('win32')
     source $VIMRUNTIME/mswin.vim
     unmap <C-V>
 endif
-
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_flake8_args = '--max-line-length=160'
-let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 
 "Related files, useful in Django
 "Open files related to a Django project or app, as views.py, models.py or settings.py
@@ -337,24 +342,3 @@ fun SetAppDir()
 endfun
 
 autocmd BufEnter *.py call SetAppDir()
-
-" vim-surround
-let b:surround_{char2nr("v")} = "{{ \r }}"
-let b:surround_{char2nr("{")} = "{{ \r }}"
-let b:surround_{char2nr("%")} = "{% \r %}"
-let b:surround_{char2nr("b")} = "{% block \1block name: \1 %}\r{% endblock \1\1 %}"
-let b:surround_{char2nr("i")} = "{% if \1condition: \1 %}\r{% endif %}"
-let b:surround_{char2nr("w")} = "{% with \1with: \1 %}\r{% endwith %}"
-let b:surround_{char2nr("f")} = "{% for \1for loop: \1 %}\r{% endfor %}"
-let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}"
-
-if has('python')
-    " ultisnips
-    " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-    let g:UltiSnipsExpandTrigger='<tab>'
-    let g:UltiSnipsJumpForwardTrigger='<c-j>'
-    let g:UltiSnipsJumpBackwardTrigger='<c-p>'
-    let g:UltiSnipsListSnippets='<c-k>'
-    " If you want :UltiSnipsEdit to split your window.
-    let g:UltiSnipsEditSplit='vertical'
-endif
