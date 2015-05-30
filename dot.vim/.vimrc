@@ -51,8 +51,20 @@ let b:match_ignorecase = 1
 
 NeoBundle 'speeddating.vim'
 NeoBundle 'abolish.vim'
+
 NeoBundle 'Justify'
+runtime macros/justify.vim
+
 NeoBundle 'smartchr'
+autocmd FileType coffee,c,cpp,ruby,perl,python,php,javascript inoremap <buffer> <expr> = smartchr#loop(' = ', '=', ' == ', ' === ')
+autocmd FileType coffee,c,cpp,ruby,perl,python,php,javascript inoremap <expr> : smartchr#loop(':', ': ', '=>')
+autocmd FileType coffee,c,cpp,ruby,perl,python,php,javascript inoremap <expr> , smartchr#loop(', ', ',')
+autocmd FileType ctp inoremap <buffer> <expr> = smartchr#loop('=', ' = ', ' == ', ' === ')
+autocmd FileType ctp inoremap <expr> : smartchr#loop(':', ': ', '=>')
+autocmd FileType ctp inoremap <expr> , smartchr#loop(', ', ',')
+autocmd FileType c,cpp inoremap <buffer> <expr> . smartchr#loop('.', '->', '...')
+autocmd FileType php inoremap <buffer> <expr> . smartchr#loop('.', '->')
+
 NeoBundle 'Rykka/clickable.vim'
 NeoBundle 'Rykka/clickable-things'
 NeoBundle 'Rykka/os.vim'
@@ -80,6 +92,18 @@ NeoBundle 'Lokaltog/vim-powerline'
 let g:Powerline_symbols = 'fancy'
 
 NeoBundle 'ynkdir/vim-funlib'
+function! Random(a, b)
+    return random#randint(a:a, a:b)
+endfunction
+function! MD5(data)
+    return hashlib#md5(a:data)
+endfunction
+function! Sha1(data)
+    return hashlib#sha1(a:data)
+endfunction
+function! Sha256(data)
+    return hashlib#sha1(a:data)
+endfunction
 
 NeoBundle 'tpope/vim-surround'
 " vim-surround
@@ -100,6 +124,14 @@ NeoBundle 'tsukkee/unite-tag'
 NeoBundle 'tomtom/tcomment_vim'
 
 NeoBundle 'thinca/vim-ref'
+if has('win32') || has('win64')
+    let g:ref_phpmanual_path = 'C:\phpmanual'
+else
+    let g:ref_phpmanual_path = '/phpmanual'
+endif
+nmap ,rp :<C-u>Ref phpmanual<Space>
+nmap ,ra :<C-u>Ref alc<Space>
+
 NeoBundle 'thinca/vim-localrc'
 
 NeoBundle 'taku-o/vim-toggle'
@@ -161,6 +193,16 @@ unlet s:bundle
 
 if has('python')
     NeoBundleLazy 'davidhalter/jedi-vim', { 'autoload': { 'filetypes': ['python'] } }
+    let s:bundle = neobundle#get('jedi-vim')
+    function! s:bundle.hooks.on_source(bundle)
+        autocmd FileType python setlocal omnifunc=jedi#completions
+        let g:jedi#auto_vim_configuration = 0
+        if !exists('g:neocomplete#force_omni_input_patterns')
+            let g:neocomplete#force_omni_input_patterns = {}
+        endif
+        let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*' " enable quickrun let g:jedi#rename_command = "" let g:jedi#pydoc = ""
+    endfunction
+unlet s:bundle
 endif
 
 " encoding
@@ -243,60 +285,12 @@ nnoremap q? <Nop>
 " Reset hlsearch
 nnoremap <ESC><ESC> :nohlsearch<CR>
 
-" vim-funlib
-function! Random(a, b)
-    return random#randint(a:a, a:b)
-endfunction
-function! MD5(data)
-    return hashlib#md5(a:data)
-endfunction
-function! Sha1(data)
-    return hashlib#sha1(a:data)
-endfunction
-function! Sha256(data)
-    return hashlib#sha1(a:data)
-endfunction
-
-" Justify
-runtime macros/justify.vim
-
 " Indent
 vnoremap < <gv
 vnoremap > >gv
 
-" ref.vim
-if has('win32') || has('win64')
-    let g:ref_phpmanual_path = 'C:\phpmanual'
-else
-    let g:ref_phpmanual_path = '/phpmanual'
-endif
-nmap ,rp :<C-u>Ref phpmanual<Space>
-nmap ,ra :<C-u>Ref alc<Space>
-
-" smartchr
-autocmd FileType coffee,c,cpp,ruby,perl,python,php,javascript inoremap <buffer> <expr> = smartchr#loop(' = ', '=', ' == ', ' === ')
-autocmd FileType coffee,c,cpp,ruby,perl,python,php,javascript inoremap <expr> : smartchr#loop(':', ': ', '=>')
-autocmd FileType coffee,c,cpp,ruby,perl,python,php,javascript inoremap <expr> , smartchr#loop(', ', ',')
-autocmd FileType ctp inoremap <buffer> <expr> = smartchr#loop('=', ' = ', ' == ', ' === ')
-autocmd FileType ctp inoremap <expr> : smartchr#loop(':', ': ', '=>')
-autocmd FileType ctp inoremap <expr> , smartchr#loop(', ', ',')
-autocmd FileType c,cpp inoremap <buffer> <expr> . smartchr#loop('.', '->', '...')
-autocmd FileType php inoremap <buffer> <expr> . smartchr#loop('.', '->')
-
 " unite.vim
 imap <C-k> <Plug>(neocomplcache_start_unite_complete)
-
-" jedi and neocomplcache
-let s:bundle = neobundle#get('jedi-vim')
-function! s:bundle.hooks.on_source(bundle)
-    autocmd FileType python setlocal omnifunc=jedi#completions
-    let g:jedi#auto_vim_configuration = 0
-    if !exists('g:neocomplete#force_omni_input_patterns')
-        let g:neocomplete#force_omni_input_patterns = {}
-    endif
-    let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*' " enable quickrun let g:jedi#rename_command = "" let g:jedi#pydoc = ""
-endfunction
-unlet s:bundle
 
 " Keymaps for linux and windows
 if !has('mac') && has('unix') || has('win32')
