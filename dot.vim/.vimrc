@@ -106,7 +106,6 @@ function! Sha256(data)
 endfunction
 
 NeoBundle 'tpope/vim-surround'
-" vim-surround
 let b:surround_{char2nr("v")} = "{{ \r }}"
 let b:surround_{char2nr("{")} = "{{ \r }}"
 let b:surround_{char2nr("%")} = "{% \r %}"
