@@ -86,6 +86,8 @@ NeoBundleLazy 'Rykka/riv.vim', { 'autoload': { 'filetypes': ['rst'] } }
 
 NeoBundleLazy 'tell-k/vim-autopep8', { 'autoload': { 'filetypes': ['python'] } }
 
+NeoBundleLazy 'django.vim', { 'autoload': { 'filetypes': ['python'] } }
+
 NeoBundleLazy 'derekwyatt/vim-scala', { 'autoload': { 'filetypes': ['scala'] } }
 
 NeoBundleLazy 'fatih/vim-go', { 'autoload': { 'filetypes': ['go'] } }
