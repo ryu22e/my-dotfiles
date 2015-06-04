@@ -327,7 +327,7 @@ fun! RelatedFile(file)
     return ''
 endfun
 
-fun SetAppDir()
+fun! SetAppDir()
     if filereadable(expand("%:h"). '/models.py') || isdirectory(expand("%:h") . "/templatetags/")
         let g:last_relative_dir = expand("%:h") . '/'
         return ''
