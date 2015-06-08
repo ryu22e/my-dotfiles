@@ -156,7 +156,7 @@ let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args = '--max-line-length=160'
 let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 
-if has('python')
+if has('gui') && has('python')
     NeoBundle 'SirVer/ultisnips'
     " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
     let g:UltiSnipsExpandTrigger='<tab>'
