@@ -82,7 +82,7 @@ highlight PmenuSbra ctermbg=0
 NeoBundle 'Shougo/vimfiler'
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default = 0
-nnoremap <silent> ,f :VimFiler<CR>
+nnoremap <silent> ,f :VimFilerBufferDir<CR>
 
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc'
