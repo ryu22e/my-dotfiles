@@ -79,14 +79,29 @@ highlight Pmenu ctermbg=8
 highlight PmenuSel ctermbg=1
 highlight PmenuSbra ctermbg=0
 
-NeoBundle 'Shougo/vimfiler'
-let g:vimfiler_as_default_explorer = 1
-let g:vimfiler_safe_mode_by_default = 0
+NeoBundleLazy 'Shougo/vimfiler', {
+\   'autoload' : {
+\       'commands' : ['VimFiler', 'VimFilerCurrentDir',
+\                     'VimFilerBufferDir', 'VimFilerSplit',
+\                     'VimFilerExplorer', 'VimFilerDouble'],
+\   },
+\   'depends': [ 'Shougo/unite.vim' ],
+\ }
+let s:bundle = neobundle#get('vimfiler')
+function! s:bundle.hooks.on_source(bundle)
+    let g:vimfiler_as_default_explorer = 1
+    let g:vimfiler_safe_mode_by_default = 0
+endfunction
+unlet s:bundle
 nnoremap <silent> ,f :VimFilerBufferDir<CR>
-
-NeoBundle 'Shougo/unite.vim'
+NeoBundleLazy 'Shougo/unite.vim' , {
+\   'autoload' : { 'commands' : [ 'Unite' ] }
+\ }
 NeoBundle 'Shougo/vimproc'
-NeoBundle 'Shougo/vimshell'
+NeoBundleLazy 'Shougo/vimshell', {
+\   'autoload' : { 'commands' : [ 'VimShellBufferDir' ] },
+\   'depends': [ 'Shougo/vimproc' ],
+\}
 
 NeoBundle 'Lokaltog/vim-powerline'
 let g:Powerline_symbols = 'fancy'
@@ -135,13 +150,22 @@ NeoBundle 'thinca/vim-localrc'
 
 NeoBundle 'taku-o/vim-toggle'
 
-NeoBundle 'mattn/emmet-vim'
+NeoBundleLazy 'mattn/emmet-vim', {
+            \'autoload':
+            \{
+            \'filetypes': ['html', 'htmldjango', 'smarty']
+            \}
+            \}
 
 NeoBundleLazy 'kchmck/vim-coffee-script', { 'autoload': { 'filetypes': ['coffee'] } }
 
 NeoBundle 'rhysd/clever-f.vim'
 
-NeoBundle 'osyo-manga/vim-over'
+NeoBundleLazy 'osyo-manga/vim-over', {
+            \'autoload': {
+            \'commands': ['OverCommandLine']
+            \}
+            \}
 nnoremap <silent> <Leader>m :OverCommandLine<CR>%s/
 
 NeoBundle 'scrooloose/syntastic'
