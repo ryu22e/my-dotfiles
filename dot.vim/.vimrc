@@ -97,7 +97,12 @@ nnoremap <silent> ,f :VimFilerBufferDir<CR>
 NeoBundleLazy 'Shougo/unite.vim' , {
 \   'autoload' : { 'commands' : [ 'Unite' ] }
 \ }
-NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc', {
+\   'build': {
+\       'mac': 'make -f make_mac.mak',
+\       'unix': 'make -f make_unix.mak',
+\   },
+\}
 NeoBundleLazy 'Shougo/vimshell', {
 \   'autoload' : { 'commands' : [ 'VimShellBufferDir' ] },
 \   'depends': [ 'Shougo/vimproc' ],
