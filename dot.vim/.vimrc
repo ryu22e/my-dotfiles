@@ -333,6 +333,10 @@ if !has('mac') && has('unix') || has('win32')
     unmap <C-V>
 endif
 
+if !has('kaoriya')
+    command! -nargs=0 CdCurrent cd %:p:h
+endif
+
 "Related files, useful in Django
 "Open files related to a Django project or app, as views.py, models.py or settings.py
 let g:last_relative_dir = ''
