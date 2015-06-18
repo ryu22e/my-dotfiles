@@ -3,3 +3,4 @@ dot.vim/.vim/bundle
 *.swp
 dot.vim/.vim/autoload/gocomplete.vim
 dot.vim/.vim/ftplugin/go/gocomplete.vim
+.netrwhist
