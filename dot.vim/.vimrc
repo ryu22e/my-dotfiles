@@ -215,7 +215,24 @@ unlet s:bundle
 
 NeoBundleLazy 'django.vim', { 'autoload': { 'filetypes': ['python'] } }
 
-NeoBundleLazy 'jmcomets/vim-pony', { 'autoload': { 'filetypes': ['python', 'htmldjango'] } }
+NeoBundleLazy 'jmcomets/vim-pony', {
+            \'autoload':
+            \{
+            \'filetypes': ['python', 'htmldjango'],
+            \'commands': [
+                \'Dadmin',
+                \'Dmodels',
+                \'Dsettings',
+                \'Dtests',
+                \'Durls',
+                \'Dviews',
+                \'Drunserver',
+                \'Dsyncdb',
+                \'Dshell',
+                \'Ddbshell',
+            \],
+            \}
+            \}
 
 NeoBundleLazy 'derekwyatt/vim-scala', { 'autoload': { 'filetypes': ['scala'] } }
 
