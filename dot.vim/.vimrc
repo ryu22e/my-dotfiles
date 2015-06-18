@@ -227,8 +227,11 @@ NeoBundleLazy 'jmcomets/vim-pony', {
                 \'Durls',
                 \'Dviews',
                 \'Drunserver',
+                \'Dr',
                 \'Dsyncdb',
+                \'Dsy',
                 \'Dshell',
+                \'Dsh',
                 \'Ddbshell',
             \],
             \}
