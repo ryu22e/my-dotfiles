@@ -55,16 +55,22 @@ NeoBundle 'abolish.vim'
 NeoBundle 'Justify'
 runtime macros/justify.vim
 
-NeoBundle 'smartchr'
-autocmd FileType coffee,c,cpp,ruby,perl,python,php,javascript inoremap <buffer> <expr> = smartchr#loop(' = ', '=', ' == ')
-autocmd FileType php,javascript inoremap <buffer> <expr> = smartchr#loop(' = ', '=', ' == ', ' === ')
-autocmd FileType coffee,c,cpp,ruby,perl,python,php,javascript inoremap <expr> : smartchr#loop(':', ': ', '=>')
-autocmd FileType coffee,c,cpp,ruby,perl,python,php,javascript inoremap <expr> , smartchr#loop(', ', ',')
-autocmd FileType ctp inoremap <buffer> <expr> = smartchr#loop('=', ' = ', ' == ', ' === ')
-autocmd FileType ctp inoremap <expr> : smartchr#loop(':', ': ', '=>')
-autocmd FileType ctp inoremap <expr> , smartchr#loop(', ', ',')
-autocmd FileType c,cpp inoremap <buffer> <expr> . smartchr#loop('.', '->', '...')
-autocmd FileType php inoremap <buffer> <expr> . smartchr#loop('.', '->')
+NeoBundleLazy 'smartchr', {
+    \'autoload' : { 'insert' : 1 },
+\}
+let s:bundle = neobundle#get('smartchr')
+function! s:bundle.hooks.on_source(bundle)
+    autocmd FileType coffee,c,cpp,ruby,perl,python,php,javascript inoremap <buffer> <expr> = smartchr#loop(' = ', '=', ' == ')
+    autocmd FileType php,javascript inoremap <buffer> <expr> = smartchr#loop(' = ', '=', ' == ', ' === ')
+    autocmd FileType coffee,c,cpp,ruby,perl,python,php,javascript inoremap <expr> : smartchr#loop(':', ': ', '=>')
+    autocmd FileType coffee,c,cpp,ruby,perl,python,php,javascript inoremap <expr> , smartchr#loop(', ', ',')
+    autocmd FileType ctp inoremap <buffer> <expr> = smartchr#loop('=', ' = ', ' == ', ' === ')
+    autocmd FileType ctp inoremap <expr> : smartchr#loop(':', ': ', '=>')
+    autocmd FileType ctp inoremap <expr> , smartchr#loop(', ', ',')
+    autocmd FileType c,cpp inoremap <buffer> <expr> . smartchr#loop('.', '->', '...')
+    autocmd FileType php inoremap <buffer> <expr> . smartchr#loop('.', '->')
+endfunction
+unlet s:bundle
 
 NeoBundle 'Rykka/clickable.vim'
 NeoBundle 'Rykka/clickable-things'
