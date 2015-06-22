@@ -36,8 +36,6 @@ highlight zenkakuda ctermbg=7
 match zenkakuda /　/
 filetype plugin indent on
 
-NeoBundle 'gmarik/vundle'
-
 NeoBundle 'git-commit'
 let git_diff_spawn_mode = 1
 
