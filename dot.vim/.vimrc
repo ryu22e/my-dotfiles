@@ -292,6 +292,9 @@ NeoBundleLazy 'fatih/vim-go', { 'autoload': { 'filetypes': ['go'] } }
 let s:bundle = neobundle#get('vim-go')
 function! s:bundle.hooks.on_source(bundle)
     auto BufWritePre *.go GoFmt
+    au FileType go nmap <leader>b <Plug>(go-build)
+    au FileType go nmap <leader>t <Plug>(go-test)
+    au FileType go nmap <leader>c <Plug>(go-coverage)
 endfunction
 unlet s:bundle
 
