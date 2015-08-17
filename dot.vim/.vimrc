@@ -313,6 +313,8 @@ endif
 
 NeoBundleLazy 'cespare/vim-toml', { 'autoload': { 'filetypes': ['toml'] } }
 
+NeoBundleLazy 'chase/vim-ansible-yaml', { 'autoload': { 'filetypes': ['ansible'] } }
+
 " encoding
 set enc=utf-8
 set fenc=utf-8
