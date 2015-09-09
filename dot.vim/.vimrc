@@ -317,6 +317,8 @@ NeoBundleLazy 'chase/vim-ansible-yaml', { 'autoload': { 'filetypes': ['ansible']
 
 NeoBundleLazy 'elixir-lang/vim-elixir', { 'autoload': { 'filetypes': ['elixir'] } }
 
+NeoBundleLazy 'Glench/Vim-Jinja2-Syntax', { 'autoload': { 'filetypes': ['jinja'] } }
+
 " encoding
 set enc=utf-8
 set fenc=utf-8
