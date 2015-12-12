@@ -325,6 +325,8 @@ NeoBundleLazy 'elixir-lang/vim-elixir', { 'autoload': { 'filetypes': ['elixir'] 
 
 NeoBundleLazy 'Glench/Vim-Jinja2-Syntax', { 'autoload': { 'filetypes': ['jinja'] } }
 
+call neobundle#end()
+
 " encoding
 set enc=utf-8
 set fenc=utf-8
