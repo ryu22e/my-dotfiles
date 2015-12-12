@@ -1,10 +1,13 @@
 " Note: Skip initialization for vim-tiny or vim-small.
 if 0 | endif
 
-set nocompatible
 filetype off
 
 if has('vim_starting')
+    if &compatible
+        set nocompatible
+    endif
+
     set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
