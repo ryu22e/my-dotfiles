@@ -163,8 +163,10 @@ NeoBundleLazy 'Shougo/vimshell', {
 \   'depends': [ 'Shougo/vimproc' ],
 \}
 
-NeoBundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
-let g:Powerline_symbols = 'fancy'
+if has('python')
+    NeoBundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+    let g:Powerline_symbols = 'fancy'
+endif
 
 NeoBundle 'ynkdir/vim-funlib'
 function! Random(a, b)
