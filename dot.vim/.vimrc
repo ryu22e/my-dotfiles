@@ -327,6 +327,10 @@ NeoBundleLazy 'elixir-lang/vim-elixir', { 'autoload': { 'filetypes': ['elixir'] 
 
 NeoBundleLazy 'Glench/Vim-Jinja2-Syntax', { 'autoload': { 'filetypes': ['jinja'] } }
 
+if has('python')
+    NeoBundle 'editorconfig/editorconfig-vim'
+endif
+
 call neobundle#end()
 
 " encoding
