@@ -163,7 +163,7 @@ NeoBundleLazy 'Shougo/vimshell', {
 \   'depends': [ 'Shougo/vimproc' ],
 \}
 
-NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 let g:Powerline_symbols = 'fancy'
 
 NeoBundle 'ynkdir/vim-funlib'
