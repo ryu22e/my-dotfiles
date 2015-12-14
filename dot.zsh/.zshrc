@@ -10,6 +10,10 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion::complete:*' use-cache 1
 setopt list_packed
 
+# history ignore space
+#
+setopt HIST_IGNORE_SPACE
+
 # disable nomatch
 #
 setopt nonomatch
