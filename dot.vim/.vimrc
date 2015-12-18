@@ -259,10 +259,10 @@ NeoBundleLazy 'Rykka/riv.vim', { 'autoload': { 'filetypes': ['rst'] } }
 
 NeoBundleLazy 'tell-k/vim-autopep8', {
 \   'disabled' : !executable('autopep8'),
-    \'autoload': {
-        \'filetypes': [ 'python' ],
-        \'commands': [ 'Autopep8' ],
-    \}
+\   'autoload': {
+\       'filetypes': ['python'],
+\       'commands': ['Autopep8'],
+\   }
 \}
 let s:bundle = neobundle#get('vim-autopep8')
 function! s:bundle.hooks.on_source(bundle)
