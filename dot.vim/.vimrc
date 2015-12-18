@@ -332,6 +332,7 @@ if has('python')
 endif
 
 NeoBundleLazy 'mileszs/ack.vim', {
+\   'disabled' : !executable('ack'),
 \   'autoload': {
 \       'commands': [
 \           'Ack',
