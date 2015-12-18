@@ -331,6 +331,22 @@ if has('python')
     NeoBundle 'editorconfig/editorconfig-vim'
 endif
 
+NeoBundleLazy 'mileszs/ack.vim', {
+\   'autoload': {
+\       'commands': [
+\           'Ack',
+\           'AckAdd',
+\           'AckFromSearch',
+\           'LAck',
+\           'LAckAdd',
+\           'AckFile',
+\           'AckHelp',
+\           'AckWindow',
+\           'LAckWindow'
+\       ],
+\   }
+\}
+
 call neobundle#end()
 
 " encoding
