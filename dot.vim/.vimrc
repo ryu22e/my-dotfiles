@@ -258,6 +258,7 @@ endif
 NeoBundleLazy 'Rykka/riv.vim', { 'autoload': { 'filetypes': ['rst'] } }
 
 NeoBundleLazy 'tell-k/vim-autopep8', {
+\   'disabled' : !executable('autopep8'),
     \'autoload': {
         \'filetypes': [ 'python' ],
         \'commands': [ 'Autopep8' ],
