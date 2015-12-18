@@ -484,6 +484,9 @@ endfun
 
 autocmd BufEnter *.py call SetAppDir()
 
+" Open new tab
+nnoremap <silent> <Leader>t :tabnew<CR>
+
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
