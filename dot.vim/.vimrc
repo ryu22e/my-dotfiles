@@ -348,6 +348,12 @@ NeoBundleLazy 'mileszs/ack.vim', {
 \   }
 \}
 
+NeoBundleLazy 'stephpy/vim-php-cs-fixer', {
+\   'autoload': {
+\       'filetypes': ['php'],
+\   }
+\}
+
 call neobundle#end()
 
 " encoding
