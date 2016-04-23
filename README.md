@@ -1,13 +1,4 @@
-# Setup vimproc
+# Setup vimproc for windows
 
-After 'BundleInstall', compile vimproc.
-
-## Linux
-
-    cd $HOME/.vim/bundle/vimproc
-    make -f make_unix.mak
-
-## Mac
-
-    cd $HOME/.vim/bundle/vimproc
-    make -f make_mac.mak
+1. Donwload vimproc_win*.dll from [Releases · Shougo/vimproc.vim](https://github.com/Shougo/vimproc.vim/releases).
+2. Copy vimproc_win*.dll to `%HOME%\.vim\bundle\vimproc\lib`.
