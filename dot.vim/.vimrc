@@ -3,18 +3,41 @@ if 0 | endif
 
 filetype off
 
+let g:rc_dir = expand('~/.vim/rc')
+let s:dein_dir = expand('~/.cache/dein')
+let s:dein_repo_dir = expand(s:dein_dir . '/repos/github.com/Shougo/dein.vim')
+
 if has('vim_starting')
     if &compatible
         set nocompatible
     endif
 
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
+    if &runtimepath !~# '/dein.vim'
+        if !isdirectory(s:dein_repo_dir)
+          execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+        endif
+        execute 'set runtimepath^=' . s:dein_repo_dir
+    endif
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
 
-" Let NeoBundle manage NeoBundle
-NeoBundleFetch 'Shougo/neobundle.vim'
+  let s:toml = g:rc_dir . '/dein.toml'
+  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
+  call dein#load_toml(s:toml, {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
+
+  call dein#end()
+  call dein#save_state()
+endif
+
+if dein#check_install()
+  call dein#install()
+endif
+
+" osyo-manga/vim-over
+nnoremap <silent> <Leader>m :OverCommandLine<CR>%s/
 
 syntax on
 set laststatus=2
@@ -41,320 +64,6 @@ set hlsearch
 highlight zenkakuda ctermbg=7
 match zenkakuda /　/
 filetype plugin indent on
-
-NeoBundle 'git-commit'
-let git_diff_spawn_mode = 1
-
-NeoBundle 'quickrun.vim'
-NeoBundle 'Gist.vim'
-
-NeoBundle 'matchit.zip'
-runtime macros/matchit.vim
-let b:match_words = &matchpairs . "\<if\>:\<end if\>,\<if\>:\<endif\>"
-let b:match_ignorecase = 1
-
-NeoBundle 'speeddating.vim'
-NeoBundle 'abolish.vim'
-
-NeoBundle 'Justify'
-runtime macros/justify.vim
-
-NeoBundleLazy 'smartchr', {
-    \'autoload' : { 'insert' : 1 },
-\}
-let s:bundle = neobundle#get('smartchr')
-function! s:bundle.hooks.on_source(bundle)
-    autocmd FileType coffee,c,cpp,ruby,perl,python,php,javascript inoremap <buffer> <expr> = smartchr#loop(' = ', '=', ' == ')
-    autocmd FileType php,javascript inoremap <buffer> <expr> = smartchr#loop(' = ', '=', ' == ', ' === ')
-    autocmd FileType coffee,c,cpp,ruby,perl,python,php,javascript inoremap <expr> : smartchr#loop(':', ': ', '=>')
-    autocmd FileType coffee,c,cpp,ruby,perl,python,php,javascript inoremap <expr> , smartchr#loop(', ', ',')
-    autocmd FileType ctp inoremap <buffer> <expr> = smartchr#loop('=', ' = ', ' == ', ' === ')
-    autocmd FileType ctp inoremap <expr> : smartchr#loop(':', ': ', '=>')
-    autocmd FileType ctp inoremap <expr> , smartchr#loop(', ', ',')
-    autocmd FileType c,cpp inoremap <buffer> <expr> . smartchr#loop('.', '->', '...')
-    autocmd FileType php inoremap <buffer> <expr> . smartchr#loop('.', '->')
-endfunction
-unlet s:bundle
-
-NeoBundle 'Rykka/clickable.vim'
-NeoBundle 'Rykka/clickable-things'
-NeoBundle 'Rykka/os.vim'
-
-NeoBundleLazy 'Shougo/neocomplete.vim', {
-    \'depends' : 'Shougo/vimproc',
-    \'disabled' : !has('lua'),
-    \'autoload' : { 'insert' : 1,}
-\}
-let s:bundle = neobundle#get('neocomplete.vim')
-function! s:bundle.hooks.on_source(bundle)
-    " Disable AutoComplPop.
-    let g:acp_enableAtStartup = 0
-    " Use neocomplete.
-    let g:neocomplete#enable_at_startup = 1
-    " Use smartcase.
-    let g:neocomplete#enable_smart_case = 1
-    " Set minimum syntax keyword length.
-    let g:neocomplete#sources#syntax#min_keyword_length = 3
-    let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-    " Define dictionary.
-    let g:neocomplete#sources#dictionary#dictionaries = {
-        \'default' : ''
-    \}
-    " Define keyword.
-    if !exists('g:neocomplete#keyword_patterns')
-        let g:neocomplete#keyword_patterns = {}
-    endif
-    let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-    " Plugin key-mappings.
-    inoremap <expr><C-g>     neocomplete#undo_completion()
-    inoremap <expr><C-l>     neocomplete#complete_common_string()
-    " key-mappings.
-    " <CR>: close popup and save indent.
-    inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-    function! s:my_cr_function()
-      return neocomplete#close_popup() . "\<CR>"
-      " For no inserting <CR> key.
-      "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-    endfunction
-    " <C-h>, <BS>: close popup and delete backword char.
-    inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-    inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-    inoremap <expr><C-y>  neocomplete#close_popup()
-    inoremap <expr><C-e>  neocomplete#cancel_popup()
-    " Enable omni completion.
-    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-    " Enable heavy omni completion.
-    if !exists('g:neocomplete#sources#omni#input_patterns')
-      let g:neocomplete#sources#omni#input_patterns = {}
-    endif
-endfunction
-unlet s:bundle
-
-NeoBundleLazy 'Shougo/vimfiler', {
-\   'autoload' : {
-\       'commands' : ['VimFiler', 'VimFilerCurrentDir',
-\                     'VimFilerBufferDir', 'VimFilerSplit',
-\                     'VimFilerExplorer', 'VimFilerDouble'],
-\   },
-\   'depends': [ 'Shougo/unite.vim' ],
-\ }
-let s:bundle = neobundle#get('vimfiler')
-function! s:bundle.hooks.on_source(bundle)
-    let g:vimfiler_as_default_explorer = 1
-    let g:vimfiler_safe_mode_by_default = 0
-endfunction
-unlet s:bundle
-nnoremap <silent> ,f :VimFilerBufferDir<CR>
-NeoBundleLazy 'Shougo/unite.vim' , {
-\   'autoload' : { 'commands' : [ 'Unite' ] }
-\ }
-NeoBundle 'Shougo/vimproc', {
-\   'build': {
-\       'mac': 'make -f make_mac.mak',
-\       'unix': 'make -f make_unix.mak',
-\   },
-\}
-NeoBundleLazy 'Shougo/vimshell', {
-\   'autoload' : { 'commands' : [ 'VimShellBufferDir' ] },
-\   'depends': [ 'Shougo/vimproc' ],
-\}
-
-NeoBundle 'vim-airline/vim-airline', {
-\   'gui': 1,
-\}
-
-NeoBundle 'ynkdir/vim-funlib'
-function! Random(a, b)
-    return random#randint(a:a, a:b)
-endfunction
-function! MD5(data)
-    return hashlib#md5(a:data)
-endfunction
-function! Sha1(data)
-    return hashlib#sha1(a:data)
-endfunction
-function! Sha256(data)
-    return hashlib#sha1(a:data)
-endfunction
-
-NeoBundle 'tpope/vim-surround'
-let b:surround_{char2nr("v")} = "{{ \r }}"
-let b:surround_{char2nr("{")} = "{{ \r }}"
-let b:surround_{char2nr("%")} = "{% \r %}"
-let b:surround_{char2nr("b")} = "{% block \1block name: \1 %}\r{% endblock \1\1 %}"
-let b:surround_{char2nr("i")} = "{% if \1condition: \1 %}\r{% endif %}"
-let b:surround_{char2nr("w")} = "{% with \1with: \1 %}\r{% endwith %}"
-let b:surround_{char2nr("f")} = "{% for \1for loop: \1 %}\r{% endfor %}"
-let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}"
-
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-fugitive'
-
-NeoBundle 'tsukkee/unite-tag'
-
-NeoBundle 'tomtom/tcomment_vim'
-
-NeoBundle 'thinca/vim-ref'
-if has('win32') || has('win64')
-    let g:ref_phpmanual_path = 'C:\phpmanual'
-else
-    let g:ref_phpmanual_path = '/phpmanual'
-endif
-nmap ,rp :<C-u>Ref phpmanual<Space>
-nmap ,ra :<C-u>Ref alc<Space>
-
-NeoBundle 'thinca/vim-localrc'
-
-NeoBundle 'taku-o/vim-toggle'
-
-NeoBundleLazy 'mattn/emmet-vim', {
-            \'autoload':
-            \{
-            \'filetypes': ['html', 'htmldjango', 'smarty']
-            \}
-            \}
-
-NeoBundleLazy 'kchmck/vim-coffee-script', { 'autoload': { 'filetypes': ['coffee'] } }
-
-NeoBundle 'rhysd/clever-f.vim'
-
-NeoBundleLazy 'osyo-manga/vim-over', {
-            \'autoload': {
-            \'commands': ['OverCommandLine']
-            \}
-            \}
-nnoremap <silent> <Leader>m :OverCommandLine<CR>%s/
-
-NeoBundle 'scrooloose/syntastic'
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_flake8_args = '--max-line-length=160'
-let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
-let g:syntastic_rst_checkers = ['rstcheck']
-
-if has('gui_running') && has('python')
-    NeoBundle 'SirVer/ultisnips'
-    " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-    let g:UltiSnipsExpandTrigger='<tab>'
-    let g:UltiSnipsJumpForwardTrigger='<c-j>'
-    let g:UltiSnipsJumpBackwardTrigger='<c-p>'
-    let g:UltiSnipsListSnippets='<c-k>'
-    " If you want :UltiSnipsEdit to split your window.
-    let g:UltiSnipsEditSplit='vertical'
-    NeoBundle 'honza/vim-snippets'
-endif
-
-NeoBundleLazy 'Rykka/riv.vim', { 'autoload': { 'filetypes': ['rst'] } }
-
-NeoBundleLazy 'tell-k/vim-autopep8', {
-\   'disabled' : !executable('autopep8'),
-\   'autoload': {
-\       'filetypes': ['python'],
-\       'commands': ['Autopep8'],
-\   }
-\}
-let s:bundle = neobundle#get('vim-autopep8')
-function! s:bundle.hooks.on_source(bundle)
-    let g:autopep8_disable_show_diff = 1
-endfunction
-unlet s:bundle
-
-NeoBundleLazy 'django.vim', { 'autoload': { 'filetypes': ['python'] } }
-
-NeoBundleLazy 'jmcomets/vim-pony', {
-            \'autoload':
-            \{
-            \'filetypes': ['python', 'htmldjango'],
-            \'commands': [
-                \'Dadmin',
-                \'Dmodels',
-                \'Dsettings',
-                \'Dtests',
-                \'Durls',
-                \'Dviews',
-                \'Drunserver',
-                \'Dr',
-                \'Dsyncdb',
-                \'Dsy',
-                \'Dshell',
-                \'Dsh',
-                \'Ddbshell',
-            \],
-            \}
-            \}
-
-NeoBundleLazy 'derekwyatt/vim-scala', { 'autoload': { 'filetypes': ['scala'] } }
-
-NeoBundleLazy 'fatih/vim-go', { 'autoload': { 'filetypes': ['go'] } }
-let s:bundle = neobundle#get('vim-go')
-function! s:bundle.hooks.on_source(bundle)
-    auto BufWritePre *.go GoFmt
-    au FileType go nmap <leader>b <Plug>(go-build)
-    au FileType go nmap <leader>t <Plug>(go-test)
-    au FileType go nmap <leader>c <Plug>(go-coverage)
-endfunction
-unlet s:bundle
-
-if has('python')
-    NeoBundleLazy 'davidhalter/jedi-vim', { 'autoload': { 'filetypes': ['python'] } }
-    let s:bundle = neobundle#get('jedi-vim')
-    function! s:bundle.hooks.on_source(bundle)
-        autocmd FileType python setlocal omnifunc=jedi#completions
-        let g:jedi#auto_vim_configuration = 0
-        if !exists('g:neocomplete#force_omni_input_patterns')
-            let g:neocomplete#force_omni_input_patterns = {}
-        endif
-        let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*' " enable quickrun let g:jedi#rename_command = "" let g:jedi#pydoc = ""
-    endfunction
-    unlet s:bundle
-endif
-
-NeoBundleLazy 'cespare/vim-toml', { 'autoload': { 'filetypes': ['toml'] } }
-
-NeoBundleLazy 'chase/vim-ansible-yaml', { 'autoload': { 'filetypes': ['ansible'] } }
-
-NeoBundleLazy 'elixir-lang/vim-elixir', { 'autoload': { 'filetypes': ['elixir'] } }
-
-NeoBundleLazy 'Glench/Vim-Jinja2-Syntax', { 'autoload': { 'filetypes': ['jinja'] } }
-
-if has('python')
-    NeoBundle 'editorconfig/editorconfig-vim'
-endif
-
-NeoBundleLazy 'mileszs/ack.vim', {
-\   'disabled' : !executable('ack'),
-\   'autoload': {
-\       'commands': [
-\           'Ack',
-\           'AckAdd',
-\           'AckFromSearch',
-\           'LAck',
-\           'LAckAdd',
-\           'AckFile',
-\           'AckHelp',
-\           'AckWindow',
-\           'LAckWindow'
-\       ],
-\   }
-\}
-
-NeoBundleLazy 'stephpy/vim-php-cs-fixer', {
-\   'autoload': {
-\       'filetypes': ['php'],
-\   }
-\}
-
-call neobundle#end()
 
 " encoding
 set enc=utf-8
@@ -491,7 +200,3 @@ autocmd BufEnter *.py call SetAppDir()
 
 " Open new tab
 nnoremap <silent> <Leader>t :tabnew<CR>
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck

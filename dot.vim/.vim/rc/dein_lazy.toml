@@ -1,0 +1,171 @@
+[[plugins]]
+repo = 'smartchr'
+on_i = 1
+hook_add = '''
+  autocmd FileType coffee,c,cpp,ruby,perl,python,php,javascript inoremap <buffer> <expr> = smartchr#loop(' = ', '=', ' == ') 
+  autocmd FileType php,javascript inoremap <buffer> <expr> = smartchr#loop(' = ', '=', ' == ', ' === ') 
+  autocmd FileType coffee,c,cpp,ruby,perl,python,php,javascript inoremap <expr> : smartchr#loop(':', ': ', '=>') 
+  autocmd FileType coffee,c,cpp,ruby,perl,python,php,javascript inoremap <expr> , smartchr#loop(', ', ',') 
+  autocmd FileType ctp inoremap <buffer> <expr> = smartchr#loop('=', ' = ', ' == ', ' === ') 
+  autocmd FileType ctp inoremap <expr> : smartchr#loop(':', ': ', '=>') 
+  autocmd FileType ctp inoremap <expr> , smartchr#loop(', ', ',') 
+  autocmd FileType c,cpp inoremap <buffer> <expr> . smartchr#loop('.', '->', '...') 
+  autocmd FileType php inoremap <buffer> <expr> . smartchr#loop('.', '->') 
+'''
+
+[[plugins]]
+repo = 'Shougo/neocomplete.vim'
+on_i = 1
+if = '''has('lua')'''
+depends = ['vimproc.vim']
+hook_add = '''
+  " Disable AutoComplPop. 
+  let g:acp_enableAtStartup = 0 
+  " Use neocomplete. 
+  let g:neocomplete#enable_at_startup = 1 
+  " Use smartcase. 
+  let g:neocomplete#enable_smart_case = 1 
+  " Set minimum syntax keyword length. 
+  let g:neocomplete#sources#syntax#min_keyword_length = 3 
+  let g:neocomplete#lock_buffer_name_pattern = '\*ku\*' 
+  " Define dictionary. 
+  let g:neocomplete#sources#dictionary#dictionaries = { 
+      \'default' : '' 
+  \} 
+  " Define keyword. 
+  if !exists('g:neocomplete#keyword_patterns') 
+      let g:neocomplete#keyword_patterns = {} 
+  endif 
+  let g:neocomplete#keyword_patterns['default'] = '\h\w*' 
+  " Plugin key-mappings. 
+  inoremap <expr><C-g>     neocomplete#undo_completion() 
+  inoremap <expr><C-l>     neocomplete#complete_common_string() 
+  " key-mappings. 
+  " <CR>: close popup and save indent. 
+  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR> 
+  function! s:my_cr_function() 
+    return neocomplete#close_popup() . "\<CR>" 
+    " For no inserting <CR> key. 
+    "return pumvisible() ? neocomplete#close_popup() : "\<CR>" 
+  endfunction 
+  " <C-h>, <BS>: close popup and delete backword char. 
+  inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>" 
+  inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>" 
+  inoremap <expr><C-y>  neocomplete#close_popup() 
+  inoremap <expr><C-e>  neocomplete#cancel_popup() 
+  " Enable omni completion. 
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS 
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags 
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS 
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete 
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags 
+  " Enable heavy omni completion. 
+  if !exists('g:neocomplete#sources#omni#input_patterns') 
+    let g:neocomplete#sources#omni#input_patterns = {} 
+  endif 
+'''
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+on_cmd = ['Unite']
+
+[[plugins]]
+repo = 'Shougo/vimshell'
+depends = ['vimproc.vim']
+on_cmd = ['VimShellBufferDir']
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['html', 'htmldjango', 'smarty']
+
+[[plugins]]
+repo = 'osyo-manga/vim-over'
+on_cmd = ['OverCommandLine']
+
+[[plugins]]
+repo = 'Rykka/riv.vim'
+on_ft = ['rst']
+
+[[plugins]]
+repo = 'tell-k/vim-autopep8'
+if = '''executable('autopep8')'''
+on_ft = ['python']
+on_cmd = ['Autopep8']
+hook_add = '''
+  let g:autopep8_disable_show_diff = 1
+'''
+
+[[plugins]]
+repo = 'django.vim'
+on_ft = ['python']
+
+[[plugins]]
+repo = 'jmcomets/vim-pony'
+on_ft = ['python', 'htmldjango']
+on_cmd = ['Dadmin', 'Dmodels', 'Dsettings', 'Dtests', 'Durls', 'Dviews', 'Drunserver', 'Dr', 'Dsyncdb', 'Dsy', 'Dshell', 'Dsh', 'Ddbshell']
+
+[[plugins]]
+repo = 'derekwyatt/vim-scala'
+on_ft = ['scala']
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = ['go']
+hook_add = '''
+  auto BufWritePre *.go GoFmt
+  au FileType go nmap <leader>b <Plug>(go-build)
+  au FileType go nmap <leader>t <Plug>(go-test)
+  au FileType go nmap <leader>c <Plug>(go-coverage)
+'''
+
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+on_ft = ['python']
+if = '''has('python')'''
+hook_add = '''
+  autocmd FileType python setlocal omnifunc=jedi#completions
+  let g:jedi#auto_vim_configuration = 0
+  if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+  endif
+  let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*' " enable quickrun let g:jedi#rename_command = "" let g:jedi#pydoc = ""
+'''
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = ['toml']
+
+[[plugins]]
+repo = 'chase/vim-ansible-yaml'
+on_ft = ['ansible']
+
+[[plugins]]
+repo = 'elixir-lang/vim-elixir'
+on_ft = ['elixir']
+
+[[plugins]]
+repo = 'Glench/Vim-Jinja2-Syntax'
+on_ft = ['jinja']
+
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
+if = '''has('python')'''
+
+[[plugins]]
+repo = 'mileszs/ack.vim'
+if = '''executable('ack')'''
+on_cmd = ['Ack', 'AckAdd', 'AckFromSearch', 'LAck', 'LAckAdd', 'AckFile', 'AckHelp', 'AckWindow', 'LAckWindow']
+
+[[plugins]]
+repo = 'stephpy/vim-php-cs-fixer'
+on_ft = ['php']
+
+[[plugins]]
+repo = 'Shougo/vimfiler'
+depends = ['unite.vim']
+on_cmd = ['VimFiler', 'VimFilerCurrentDir', 'VimFilerBufferDir', 'VimFilerSplit', 'VimFilerExplorer', 'VimFilerDouble']
+hook_add = '''
+  let g:vimfiler_as_default_explorer = 1
+  let g:vimfiler_safe_mode_by_default = 0
+  nnoremap <silent> ,f :VimFilerBufferDir<CR>
+'''
