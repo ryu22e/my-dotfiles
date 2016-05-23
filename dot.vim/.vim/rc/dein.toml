@@ -1,0 +1,151 @@
+[[plugins]]
+repo = 'git-commit'
+hook_add = 'let git_diff_spawn_mode = 1'
+
+[[plugins]]
+repo = 'quickrun.vim'
+
+[[plugins]]
+repo = 'Gist.vim'
+
+[[plugins]]
+repo = 'matchit.zip'
+hook_add = '''
+  runtime macros/matchit.vim 
+  let b:match_words = &matchpairs . "\<if\>:\<end if\>,\<if\>:\<endif\>" 
+  let b:match_ignorecase = 1 
+'''
+
+[[plugins]]
+repo = 'speeddating.vim'
+
+[[plugins]]
+repo = 'abolish.vim'
+
+[[plugins]]
+repo = 'Justify'
+hook_add = 'runtime macros/justify.vim'
+
+[[plugins]]
+repo = 'Rykka/clickable.vim' 
+
+[[plugins]]
+repo = 'Rykka/clickable-things' 
+
+[[plugins]]
+repo = 'Rykka/os.vim' 
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+hook_post_update = '''
+  if dein#util#_is_windows()
+    let cmd = 'tools\\update-dll-mingw'
+  elseif dein#util#_is_cygwin()
+    let cmd = 'make -f make_cygwin.mak'
+  elseif executable('gmake')
+    let cmd = 'gmake'
+  else
+    let cmd = 'make'
+  endif
+  let g:dein#plugin.build = cmd
+'''
+
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+gui = 1
+
+[[plugins]]
+repo = 'ynkdir/vim-funlib'
+hook_add = '''
+  function! Random(a, b)
+      return random#randint(a:a, a:b)
+  endfunction
+  function! MD5(data)
+      return hashlib#md5(a:data)
+  endfunction
+  function! Sha1(data)
+      return hashlib#sha1(a:data)
+  endfunction
+  function! Sha256(data)
+      return hashlib#sha1(a:data)
+  endfunction
+'''
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+hook_add = '''
+  let b:surround_{char2nr("v")} = "{{ \r }}"
+  let b:surround_{char2nr("{")} = "{{ \r }}"
+  let b:surround_{char2nr("%")} = "{% \r %}"
+  let b:surround_{char2nr("b")} = "{% block \1block name: \1 %}\r{% endblock \1\1 %}"
+  let b:surround_{char2nr("i")} = "{% if \1condition: \1 %}\r{% endif %}"
+  let b:surround_{char2nr("w")} = "{% with \1with: \1 %}\r{% endwith %}"
+  let b:surround_{char2nr("f")} = "{% for \1for loop: \1 %}\r{% endfor %}"
+  let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}"
+'''
+
+[[plugins]]
+repo = 'tpope/vim-repeat'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'tsukkee/unite-tag'
+
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+
+[[plugins]]
+repo = 'thinca/vim-ref'
+hook_add = '''
+  if has('win32') || has('win64')
+      let g:ref_phpmanual_path = 'C:\phpmanual'
+  else
+      let g:ref_phpmanual_path = '/phpmanual'
+  endif
+  nmap ,rp :<C-u>Ref phpmanual<Space>
+  nmap ,ra :<C-u>Ref alc<Space>
+'''
+
+[[plugins]]
+repo = 'thinca/vim-localrc'
+
+[[plugins]]
+repo = 'taku-o/vim-toggle'
+
+[[plugins]]
+repo = 'rhysd/clever-f.vim'
+
+[[plugins]]
+repo = 'scrooloose/syntastic'
+hook_add = '''
+  set statusline+=%#warningmsg#
+  set statusline+=%{SyntasticStatuslineFlag()}
+  set statusline+=%*
+  let g:syntastic_always_populate_loc_list = 1
+  let g:syntastic_auto_loc_list = 1
+  let g:syntastic_check_on_open = 1
+  let g:syntastic_check_on_wq = 0
+  let g:syntastic_python_checkers = ['flake8']
+  let g:syntastic_python_flake8_args = '--max-line-length=160'
+  let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+  let g:syntastic_rst_checkers = ['rstcheck']
+'''
+
+[[plugins]]
+repo = 'SirVer/ultisnips'
+gui = 1
+hook_add = '''
+  " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+  let g:UltiSnipsExpandTrigger='<tab>'
+  let g:UltiSnipsJumpForwardTrigger='<c-j>'
+  let g:UltiSnipsJumpBackwardTrigger='<c-p>'
+  let g:UltiSnipsListSnippets='<c-k>'
+  " If you want :UltiSnipsEdit to split your window.
+  let g:UltiSnipsEditSplit='vertical'
+'''
+
+[[plugins]]
+repo = 'honza/vim-snippets'
+gui = 1
