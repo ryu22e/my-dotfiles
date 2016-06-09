@@ -158,6 +158,11 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'jmcantrell/vim-virtualenv'
+on_ft = ['python']
+if = '''executable('virtualenv')'''
+
+[[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = ['toml']
 
