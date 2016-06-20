@@ -3,9 +3,9 @@ repo = 'smartchr'
 on_i = 1
 hook_add = '''
   autocmd FileType coffee,c,cpp,ruby,perl,python,php,javascript inoremap <buffer> <expr> = smartchr#loop(' = ', '=', ' == ') 
-  autocmd FileType php,javascript inoremap <buffer> <expr> = smartchr#loop(' = ', '=', ' == ', ' === ') 
-  autocmd FileType coffee,c,cpp,ruby,perl,python,php,javascript inoremap <expr> : smartchr#loop(':', ': ', '=>') 
-  autocmd FileType coffee,c,cpp,ruby,perl,python,php,javascript inoremap <expr> , smartchr#loop(', ', ',') 
+  autocmd FileType php,javascript,typescript inoremap <buffer> <expr> = smartchr#loop(' = ', '=', ' == ', ' === ') 
+  autocmd FileType coffee,c,cpp,ruby,perl,python,php,javascript,typescript inoremap <expr> : smartchr#loop(':', ': ', '=>') 
+  autocmd FileType coffee,c,cpp,ruby,perl,python,php,javascript,typescript inoremap <expr> , smartchr#loop(', ', ',') 
   autocmd FileType ctp inoremap <buffer> <expr> = smartchr#loop('=', ' = ', ' == ', ' === ') 
   autocmd FileType ctp inoremap <expr> : smartchr#loop(':', ': ', '=>') 
   autocmd FileType ctp inoremap <expr> , smartchr#loop(', ', ',') 
