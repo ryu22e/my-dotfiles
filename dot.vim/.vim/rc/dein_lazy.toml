@@ -200,3 +200,8 @@ hook_add = '''
   let g:vimfiler_safe_mode_by_default = 0
   nnoremap <silent> ,f :VimFilerBufferDir<CR>
 '''
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+on_ft = ['typescript']
+if = '''executable('tsc')'''
