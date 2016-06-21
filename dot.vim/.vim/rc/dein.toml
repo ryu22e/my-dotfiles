@@ -4,6 +4,10 @@ hook_add = 'let git_diff_spawn_mode = 1'
 
 [[plugins]]
 repo = 'quickrun.vim'
+hook_add = '''
+  let g:quickrun_config = {}
+  let g:quickrun_config.typescript = {'command' : 'ts-node'}
+'''
 
 [[plugins]]
 repo = 'Gist.vim'
