@@ -205,3 +205,7 @@ hook_add = '''
 repo = 'leafgarland/typescript-vim'
 on_ft = ['typescript']
 if = '''executable('tsc')'''
+
+[[plugins]]
+repo = 'hashivim/vim-terraform'
+on_ft = ['terraform']
