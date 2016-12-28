@@ -32,7 +32,6 @@ hook_add = '''
   " Define dictionary.
   let g:neocomplete#sources#dictionary#dictionaries = {
       \ 'default' : '',
-      \ 'vimshell' : $HOME.'/.vimshell_hist',
       \ 'scheme' : $HOME.'/.gosh_completions'
           \ }
   
@@ -94,11 +93,6 @@ hook_add = '''
 [[plugins]]
 repo = 'Shougo/unite.vim'
 on_cmd = ['Unite']
-
-[[plugins]]
-repo = 'Shougo/vimshell'
-depends = ['vimproc.vim']
-on_cmd = ['VimShellBufferDir']
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
