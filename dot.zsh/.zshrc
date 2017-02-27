@@ -43,8 +43,6 @@ setopt list_packed
 setopt nolistbeep
 
 if [[ -s $HOME/perl5/perlbrew/etc/bashrc ]] ; then source $HOME/perl5/perlbrew/etc/bashrc ; fi
-[[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
-
 # rbenv
 if [[ -s `which rbenv`  ]]; then
     eval "$(rbenv init -)"
