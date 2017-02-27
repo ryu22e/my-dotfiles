@@ -184,6 +184,7 @@ on_cmd = ['Ack', 'AckAdd', 'AckFromSearch', 'LAck', 'LAckAdd', 'AckFile', 'AckHe
 [[plugins]]
 repo = 'stephpy/vim-php-cs-fixer'
 on_ft = ['php']
+if = '''executable('php-cs-fixer')'''
 hook_add = '''
     auto BufWritePre *.php call PhpCsFixerFixFile()
 '''
