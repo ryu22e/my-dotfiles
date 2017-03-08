@@ -225,3 +225,7 @@ hook_add = '''
   " If you want :UltiSnipsEdit to split your window.
   let g:UltiSnipsEditSplit='vertical'
 '''
+
+[[plugins]]
+repo = 'Glench/Vim-Jinja2-Syntax'
+on_ft = ['jinja']
