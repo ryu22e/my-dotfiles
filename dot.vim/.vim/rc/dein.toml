@@ -101,18 +101,6 @@ repo = 'tsukkee/unite-tag'
 repo = 'tomtom/tcomment_vim'
 
 [[plugins]]
-repo = 'thinca/vim-ref'
-hook_add = '''
-  if has('win32') || has('win64')
-      let g:ref_phpmanual_path = 'C:\phpmanual'
-  else
-      let g:ref_phpmanual_path = '/phpmanual'
-  endif
-  nmap ,rp :<C-u>Ref phpmanual<Space>
-  nmap ,ra :<C-u>Ref alc<Space>
-'''
-
-[[plugins]]
 repo = 'thinca/vim-localrc'
 
 [[plugins]]
