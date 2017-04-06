@@ -190,16 +190,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'Shougo/vimfiler'
-depends = ['unite.vim']
-on_cmd = ['VimFiler', 'VimFilerCurrentDir', 'VimFilerBufferDir', 'VimFilerSplit', 'VimFilerExplorer', 'VimFilerDouble']
-hook_add = '''
-  let g:vimfiler_as_default_explorer = 1
-  let g:vimfiler_safe_mode_by_default = 0
-  nnoremap <silent> ,f :VimFilerBufferDir<CR>
-'''
-
-[[plugins]]
 repo = 'leafgarland/typescript-vim'
 on_ft = ['typescript']
 if = '''executable('tsc')'''

@@ -132,3 +132,6 @@ gui = 1
 
 [[plugins]]
 repo = 'Konfekt/FastFold'
+
+[[plugins]]
+repo = 'justinmk/vim-dirvish'
