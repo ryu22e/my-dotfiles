@@ -1,19 +1,19 @@
 [[plugins]]
-repo = 'git-commit'
+repo = 'vim-scripts/git-commit'
 hook_add = 'let git_diff_spawn_mode = 1'
 
 [[plugins]]
-repo = 'quickrun.vim'
+repo = 'vim-scripts/quickrun.vim'
 hook_add = '''
   let g:quickrun_config = {}
   let g:quickrun_config.typescript = {'command' : 'ts-node'}
 '''
 
 [[plugins]]
-repo = 'Gist.vim'
+repo = 'vim-scripts/Gist.vim'
 
 [[plugins]]
-repo = 'matchit.zip'
+repo = 'vim-scripts/matchit.zip'
 hook_add = '''
   runtime macros/matchit.vim 
   let b:match_words = &matchpairs . "\<if\>:\<end if\>,\<if\>:\<endif\>" 
@@ -21,13 +21,13 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'speeddating.vim'
+repo = 'vim-scripts/speeddating.vim'
 
 [[plugins]]
-repo = 'abolish.vim'
+repo = 'vim-scripts/abolish.vim'
 
 [[plugins]]
-repo = 'Justify'
+repo = 'vim-scripts/Justify'
 hook_add = 'runtime macros/justify.vim'
 
 [[plugins]]

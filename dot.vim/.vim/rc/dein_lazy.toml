@@ -1,5 +1,5 @@
 [[plugins]]
-repo = 'smartchr'
+repo = 'vim-scripts/smartchr'
 on_i = 1
 hook_add = '''
   autocmd FileType coffee,c,cpp,ruby,perl,python,php,javascript inoremap <buffer> <expr> = smartchr#loop(' = ', '=', ' == ') 
@@ -116,7 +116,7 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'django.vim'
+repo = 'vim-scripts/django.vim'
 on_ft = ['python']
 
 [[plugins]]
