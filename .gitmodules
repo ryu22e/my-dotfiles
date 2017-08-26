@@ -1,9 +1,0 @@
-[submodule "dot.zsh/.zsh/zsh-completions"]
-	path = dot.zsh/.zsh/zsh-completions
-	url = git://github.com/zsh-users/zsh-completions.git
-[submodule "dot.zsh/.zsh/z"]
-	path = dot.zsh/.zsh/z
-	url = git://github.com/rupa/z.git
-[submodule "dot.zsh/.zsh/zsh-notify"]
-	path = dot.zsh/.zsh/zsh-notify
-	url = https://github.com/marzocchi/zsh-notify.git

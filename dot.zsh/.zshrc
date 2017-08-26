@@ -2,6 +2,28 @@ autoload -U compinit
 autoload -U add-zsh-hook
 compinit
 
+# zplug
+export ZPLUG_HOME=/usr/local/opt/zplug
+if [ ! -d $ZPLUG_HOME ]; then
+    export ZPLUG_HOME=$HOME/.zplug/init.zsh
+fi
+source $ZPLUG_HOME/init.zsh
+
+zplug "zsh-users/zsh-completions"
+zplug "marzocchi/zsh-notify"
+zplug "rupa/z", as:command
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# Then, source plugins and add commands to $PATH
+zplug load
+
 # complement
 fpath=($HOME/.zsh/functions $HOME/.zsh/zsh-completions $fpath)
 autoload -U compinit promptinit
