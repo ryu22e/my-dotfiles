@@ -73,6 +73,11 @@ fi
 # phpbrew
 [[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
 
+# pip completion
+if [[ -s $(which pip3) ]]; then
+    eval "$(pip3 completion --zsh)"
+fi
+
 # virtualenvwrapper
 VIRTUALENVWRAPPER_PATH=`which virtualenvwrapper.sh`
 if [[ -s $VIRTUALENVWRAPPER_PATH ]]; then
