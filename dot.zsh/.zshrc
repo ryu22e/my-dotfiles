@@ -70,6 +70,9 @@ if [[ -s `which rbenv`  ]]; then
     eval "$(rbenv init -)"
 fi
 
+# phpbrew
+[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
+
 # virtualenvwrapper
 VIRTUALENVWRAPPER_PATH=`which virtualenvwrapper.sh`
 if [[ -s $VIRTUALENVWRAPPER_PATH ]]; then
