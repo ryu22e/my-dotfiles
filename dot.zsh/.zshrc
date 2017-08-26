@@ -26,7 +26,7 @@ fi
 zplug load
 
 # complement
-fpath=($HOME/.zsh/functions $HOME/.zsh/zsh-completions $fpath)
+fpath=($HOME/.zsh/functions $fpath)
 autoload -U compinit promptinit
 compinit
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
