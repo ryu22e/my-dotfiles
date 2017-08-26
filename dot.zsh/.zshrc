@@ -37,10 +37,6 @@ setopt list_packed
 #
 setopt HIST_IGNORE_SPACE
 
-# ignore duplicated histories
-#
-setopt hist_ignore_dups
-
 # disable nomatch
 #
 setopt nonomatch
@@ -72,11 +68,6 @@ setopt nolistbeep
 # rbenv
 if [[ -s `which rbenv`  ]]; then
     eval "$(rbenv init -)"
-fi
-
-# phpenv
-if [[ -s `which phpenv`  ]]; then
-    eval "$(phpenv init -)"
 fi
 
 # virtualenvwrapper
@@ -150,13 +141,6 @@ bindkey "^N" history-beginning-search-forward-end
 # historical backward search with linehead string binded to ^R
 # 
 bindkey '^R' history-incremental-search-backward
-  
-## Command history configuration
-#
-HISTFILE=~/.zsh_history
-HISTSIZE=100000
-SAVEHIST=100000
-setopt hist_ignore_dups     # ignore duplication command h
 
 case "${TERM}" in
 kterm*|xterm*)
@@ -261,24 +245,6 @@ setopt prompt_subst
 RPROMPT='[`rprompt-git-current-branch`%~]'
 
 REPORTTIME=3
-
-if [[ -s $HOME/.zsh/z/z.sh ]]; then
-    source $HOME/.zsh/z/z.sh
-    function precmd () { 
-        _z --add "$(pwd -P)" 
-    }
-fi
-
-# Boxen
-[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
-[ -f /opt/boxen/nvm/nvm.sh ] && source /opt/boxen/nvm/nvm.sh
-
-# zsh-notify
-ZSH_NOTIFY_HOME=$HOME/.zsh/zsh-notify
-export SYS_NOTIFIER=`which terminal-notifier`
-if [[ -d $ZSH_NOTIFY_HOME && -s $SYS_NOTIFIER ]]; then
-    source $ZSH_NOTIFY_HOME/notify.plugin.zsh
-fi
 
 # direnv
 DIRENV_PATH=`which direnv`
