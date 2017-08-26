@@ -13,6 +13,7 @@ zplug "zsh-users/zsh-completions"
 zplug "marzocchi/zsh-notify"
 zplug "Tarrasch/zsh-autoenv"
 zplug "rupa/z", use:z.sh
+zplug "plugins/django", from:oh-my-zsh
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
