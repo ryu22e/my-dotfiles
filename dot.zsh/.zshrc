@@ -37,6 +37,10 @@ setopt list_packed
 #
 setopt HIST_IGNORE_SPACE
 
+# ignore duplicated histories
+#
+setopt hist_ignore_dups
+
 # disable nomatch
 #
 setopt nonomatch
