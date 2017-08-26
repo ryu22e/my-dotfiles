@@ -12,6 +12,7 @@ source $ZPLUG_HOME/init.zsh
 zplug "zsh-users/zsh-completions"
 zplug "marzocchi/zsh-notify"
 zplug "rupa/z", as:command
+zplug "Tarrasch/zsh-autoenv"
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
