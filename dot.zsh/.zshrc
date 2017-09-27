@@ -79,6 +79,11 @@ if [[ -s $(which pip3) ]]; then
     eval "$(pip3 completion --zsh)"
 fi
 
+# pipenv completion
+if [[ -s $(which pipenv) ]]; then
+    eval "$(pipenv --completion)"
+fi
+
 # virtualenvwrapper
 VIRTUALENVWRAPPER_PATH=`which virtualenvwrapper.sh`
 if [[ -s $VIRTUALENVWRAPPER_PATH ]]; then
