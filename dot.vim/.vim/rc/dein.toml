@@ -123,6 +123,8 @@ hook_add = '''
   let g:syntastic_python_flake8_args = '--max-line-length=160'
   let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
   let g:syntastic_rst_checkers = ['rstcheck']
+  let g:syntastic_go_checkers = ['golint', 'govet', 'go']
+  let g:go_list_type = "quickfix"
   let g:syntastic_typescript_checkers = ['tslint', 'tsc']
 '''
 
