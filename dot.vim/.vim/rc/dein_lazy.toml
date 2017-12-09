@@ -23,11 +23,11 @@ let g:deoplete#enable_at_startup = 1
 
 [[plugins]]
 repo = 'roxma/nvim-yarp'
-if = '''has("nvim") && has("python3")'''
+if = '''!has("nvim") && has("python3")'''
 
 [[plugins]]
 repo = 'roxma/vim-hug-neovim-rpc'
-if = '''has("nvim") && has("python3")'''
+if = '''!has("nvim") && has("python3")'''
 
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
