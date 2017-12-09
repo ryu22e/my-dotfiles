@@ -17,7 +17,6 @@ hook_add = '''
 repo = 'Shougo/deoplete.nvim'
 on_i = 1
 if = '''has("nvim") && has("python3")'''
-depends = ['roxma/nvim-yarp', 'roxma/vim-hug-neovim-rpc']
 hook_add = '''
 let g:deoplete#enable_at_startup = 1
 '''
