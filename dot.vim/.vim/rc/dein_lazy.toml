@@ -14,6 +14,23 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'Shougo/deoplete.nvim'
+on_i = 1
+if = '''has("nvim") && has("python3")'''
+depends = ['roxma/nvim-yarp', 'roxma/vim-hug-neovim-rpc']
+hook_add = '''
+let g:deoplete#enable_at_startup = 1
+'''
+
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+if = '''has("nvim") && has("python3")'''
+
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+if = '''has("nvim") && has("python3")'''
+
+[[plugins]]
 repo = 'Shougo/neocomplete.vim'
 on_i = 1
 depends = ['vimproc.vim']
@@ -142,7 +159,7 @@ hook_add = '''
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
 on_ft = ['python']
-if = '''has('python')'''
+if = '''!has("nvim") && has('python')'''
 hook_add = '''
   autocmd FileType python setlocal omnifunc=jedi#completions
   let g:jedi#auto_vim_configuration = 0
