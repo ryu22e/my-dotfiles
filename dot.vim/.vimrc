@@ -69,8 +69,10 @@ match zenkakuda /　/
 filetype plugin indent on
 
 " colorscheme
-colorscheme molokai
-let g:rehash256 = 1
+if has('nvim')
+    colorscheme molokai
+    let g:rehash256 = 1
+endif
 
 " encoding
 set enc=utf-8
