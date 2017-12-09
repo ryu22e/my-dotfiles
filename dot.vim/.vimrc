@@ -24,6 +24,7 @@ endif
 
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
+  call dein#add('tomasr/molokai')
 
   let s:toml = g:rc_dir . '/dein.toml'
   let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
@@ -66,6 +67,10 @@ set hlsearch
 highlight zenkakuda ctermbg=7
 match zenkakuda /　/
 filetype plugin indent on
+
+" colorscheme
+colorscheme molokai
+let g:rehash256 = 1
 
 " encoding
 set enc=utf-8
