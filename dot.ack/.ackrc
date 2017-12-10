@@ -3,3 +3,4 @@
 --type-set=rst=.rst
 --type-set=rb=.rb
 --type-set=tf=.tf
+--type-set=txt=.txt
