@@ -230,8 +230,7 @@ if = '''executable('tsc')'''
 repo = 'hashivim/vim-terraform'
 on_ft = ['terraform']
 hook_add = '''
-  auto BufWritePre *.tf TerraformFmt
-  auto BufWritePre *.tfvars TerraformFmt
+  let g:terraform_fmt_on_save = 1
 '''
 
 [[plugins]]
