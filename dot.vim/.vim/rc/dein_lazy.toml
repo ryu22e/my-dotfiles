@@ -22,6 +22,13 @@ let g:deoplete#enable_at_startup = 1
 '''
 
 [[plugins]]
+repo = 'zchee/deoplete-jedi'
+on_i = 1
+if = '''has("nvim") && has("python3")'''
+depends = ['deoplete.nvim']
+on_ft = ['python']
+
+[[plugins]]
 repo = 'roxma/nvim-yarp'
 if = '''!has("nvim") && has("python3")'''
 
