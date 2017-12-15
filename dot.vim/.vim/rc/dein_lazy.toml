@@ -234,6 +234,10 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'juliosueiras/vim-terraform-completion'
+on_ft = ['terraform']
+
+[[plugins]]
 repo = 'SirVer/ultisnips'
 gui = 1
 on_i = 1
