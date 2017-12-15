@@ -29,6 +29,14 @@ depends = ['deoplete.nvim']
 on_ft = ['python']
 
 [[plugins]]
+repo = 'zchee/deoplete-go'
+on_i = 1
+if = '''has("nvim") && has("python3")'''
+depends = ['deoplete.nvim']
+op_ft = ['go']
+build = 'make'
+
+[[plugins]]
 repo = 'roxma/nvim-yarp'
 if = '''!has("nvim") && has("python3")'''
 
