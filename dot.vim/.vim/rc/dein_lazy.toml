@@ -95,6 +95,15 @@ let g:deoplete#sources#ternjs#in_literal = 0
 '''
 
 [[plugins]]
+repo = 'python-rope/ropevim'
+if = '''has("nvim") && has("python3")'''
+depends = ['deoplete.nvim']
+op_ft = ['python']
+hook_add = '''
+let ropevim_vim_completion=1
+'''
+
+[[plugins]]
 repo = 'roxma/nvim-yarp'
 if = '''!has("nvim") && has("python3")'''
 
@@ -316,3 +325,6 @@ on_ft = ['jinja']
 [[plugins]]
 repo = 'rust-lang/rust.vim'
 on_ft = ['rust']
+hook_add = '''
+let g:rustfmt_autosave = 1
+'''
