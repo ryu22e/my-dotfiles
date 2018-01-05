@@ -138,6 +138,3 @@ repo = 'Konfekt/FastFold'
 
 [[plugins]]
 repo = 'justinmk/vim-dirvish'
-
-[[plugins]]
-repo = 'bronson/vim-trailing-whitespace'
