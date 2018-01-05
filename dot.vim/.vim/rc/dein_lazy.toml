@@ -322,3 +322,10 @@ hook_add = '''
     let g:rustfmt_command='rustup run nightly rustfmt'
   endif
 '''
+
+[[plugins]]
+repo = 'sebastianmarkow/deoplete-rust'
+on_i = 1
+if = '''has("nvim") && has("python3")'''
+depends = ['deoplete.nvim']
+on_ft = ['rust']
