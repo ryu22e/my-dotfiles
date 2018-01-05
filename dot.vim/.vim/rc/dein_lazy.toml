@@ -329,6 +329,7 @@ on_i = 1
 if = '''has("nvim") && has("python3")'''
 depends = ['deoplete.nvim']
 on_ft = ['rust']
+if = '''executable('racer')'''
 
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
