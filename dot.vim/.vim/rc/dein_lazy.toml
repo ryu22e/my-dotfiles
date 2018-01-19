@@ -193,7 +193,7 @@ repo = 'osyo-manga/vim-over'
 on_cmd = ['OverCommandLine']
 
 [[plugins]]
-repo = 'Rykka/riv.vim'
+repo = 'gu-fan/riv.vim'
 on_ft = ['rst']
 
 [[plugins]]
