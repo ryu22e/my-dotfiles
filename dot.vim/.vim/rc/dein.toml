@@ -110,7 +110,7 @@ repo = 'taku-o/vim-toggle'
 repo = 'rhysd/clever-f.vim'
 
 [[plugins]]
-repo = 'scrooloose/syntastic'
+repo = 'vim-syntastic/syntastic'
 hook_add = '''
   set statusline+=%#warningmsg#
   set statusline+=%{SyntasticStatuslineFlag()}
