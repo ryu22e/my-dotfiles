@@ -265,3 +265,12 @@ DIRENV_PATH=`which direnv`
 if [[ -s $DIRENV_PATH ]]; then
     eval "$(direnv hook zsh)"
 fi
+
+# Rust
+CARGO_ENV_PATH=${HOME}/.cargo/env
+if [[ -s $CARGO_ENV_PATH ]]; then
+    source $CARGO_ENV_PATH
+fi
+if [[ -s $(which rustc)  ]]; then
+    export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+fi
