@@ -7,7 +7,8 @@ let g:rc_dir = expand('~/.vim/rc')
 let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = expand(s:dein_dir . '/repos/github.com/Shougo/dein.vim')
 
-let g:python_host_prog = '/usr/bin/python'
+let g:python_host_prog = expand('~/.venv/nvim/python2/bin/python')
+let g:python3_host_prog = expand('~/.venv/nvim/python3/bin/python')
 
 if has('vim_starting')
     if &compatible
