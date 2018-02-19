@@ -335,9 +335,6 @@ repo = 'rust-lang/rust.vim'
 on_ft = ['rust']
 hook_add = '''
   let g:rustfmt_autosave = 1
-  if executable('rustup')
-    let g:rustfmt_command='rustup run nightly rustfmt'
-  endif
 '''
 
 [[plugins]]
