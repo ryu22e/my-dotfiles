@@ -327,10 +327,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'Glench/Vim-Jinja2-Syntax'
-on_ft = ['jinja']
-
-[[plugins]]
 repo = 'rust-lang/rust.vim'
 on_ft = ['rust']
 hook_add = '''
