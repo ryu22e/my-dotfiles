@@ -67,7 +67,7 @@ setopt list_packed
 setopt nolistbeep
 
 # rbenv
-if [[ -s `which rbenv`  ]]; then
+if [[ $(type rbenv)  ]]; then
     eval "$(rbenv init -)"
 fi
 
@@ -75,17 +75,17 @@ fi
 [[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
 
 # pip completion
-if [[ -s $(which pip3) ]]; then
+if [[ $(type pip3) ]]; then
     eval "$(pip3 completion --zsh)"
 fi
 
 # pipenv completion
-if [[ -s $(which pipenv) ]]; then
+if [[ $(type pipenv) ]]; then
     eval "$(pipenv --completion)"
 fi
 
 # hub
-if [[ -s $(which hub) ]]; then
+if [[ $(type hub) ]]; then
   eval "$(hub alias -s)"
 fi
 
@@ -266,8 +266,7 @@ RPROMPT='[`rprompt-git-current-branch`%~]'
 REPORTTIME=3
 
 # direnv
-DIRENV_PATH=`which direnv`
-if [[ -s $DIRENV_PATH ]]; then
+if [[ $(type direnv) ]]; then
     eval "$(direnv hook zsh)"
 fi
 
@@ -276,6 +275,6 @@ CARGO_ENV_PATH=${HOME}/.cargo/env
 if [[ -s $CARGO_ENV_PATH ]]; then
     source $CARGO_ENV_PATH
 fi
-if [[ -s $(which rustc)  ]]; then
+if [[ $(type rustc) ]]; then
     export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 fi
