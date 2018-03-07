@@ -111,14 +111,14 @@ case ${UID} in
     PROMPT="%B%{[31m%}%/#%{[[m%}%b "
     PROMPT2="%B%{[31m%}%_#%{[m%}%b "
     SPROMPT="%B%{[31m%}%r is correct? [n,y,a,e]:%{[m%}%b "
-    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
         PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
     ;;
 *)
     PROMPT="%{[31m%}%/%%%{[m%} "
     PROMPT2="%{[31m%}%_%%%{[m%} "
     SPROMPT="%{[31m%}%r is correct? [n,y,a,e]:%{[m%} "
-    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
         PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
     ;;
 esac
@@ -145,10 +145,10 @@ setopt share_history        # share command history data
 
 ## Keybind configuration
 #
-# vim like keybind 
+# vim like keybind
 #
 bindkey -v
- 
+
 # historical backward/forward search with linehead string binded to ^P/^N
 #
 autoload history-search-end
@@ -156,9 +156,9 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
- 
+
 # historical backward search with linehead string binded to ^R
-# 
+#
 bindkey '^R' history-incremental-search-backward
 
 case "${TERM}" in
@@ -187,10 +187,10 @@ esac
 # For Ubuntu
 case `uname -a` in
     Linux\ ubuntu-server*)
-        case $TERM in   
-            linux) LANG=C;; 
+        case $TERM in
+            linux) LANG=C;;
             *) LANG=ja_JP.UTF-8;;
-        esac            
+        esac
     ;;
 esac
 
@@ -255,7 +255,7 @@ function rprompt-git-current-branch {
         else
                  color=%F{red}
          fi
-              
+
         echo "$color$name$action%f%b "
 }
 
