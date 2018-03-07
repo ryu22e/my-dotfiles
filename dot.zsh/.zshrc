@@ -84,6 +84,11 @@ if [[ -s $(which pipenv) ]]; then
     eval "$(pipenv --completion)"
 fi
 
+# hub
+if [[ -s $(which hub) ]]; then
+  eval "$(hub alias -s)"
+fi
+
 # virtualenvwrapper
 VIRTUALENVWRAPPER_PATH=`which virtualenvwrapper.sh`
 if [[ -s $VIRTUALENVWRAPPER_PATH ]]; then
