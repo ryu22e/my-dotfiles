@@ -332,3 +332,10 @@ on_ft = ['rust']
 hook_add = '''
   let g:rustfmt_autosave = 1
 '''
+
+[[plugins]]
+repo = 'posva/vim-vue'
+on_ft = ['vue']
+hook_add = '''
+  autocmd BufRead,BufNewFile *.vue setlocal filetype=vue
+'''
