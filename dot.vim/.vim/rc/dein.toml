@@ -141,3 +141,28 @@ repo = 'justinmk/vim-dirvish'
 
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
+
+
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+hook_add = '''
+if executable('rls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
+        \ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
+        \ 'whitelist': ['rust'],
+        \ })
+endif
+
+if executable('pyls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+endif
+'''
+
+[[plugins]]
+repo = 'prabirshrestha/async.vim'
