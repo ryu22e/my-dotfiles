@@ -22,23 +22,6 @@ let g:deoplete#enable_at_startup = 1
 '''
 
 [[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-if = '''has("nvim")'''
-depends = ['deoplete.nvim']
-on_cmd = ['LanguageClientStart']
-rev = 'next'
-build = 'bash install.sh'
-hook_add = '''
-set hidden
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rls'],
-    \ }
-nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
-'''
-
-[[plugins]]
 repo = 'zchee/deoplete-go'
 on_i = 1
 if = '''has("nvim") && has("python3")'''
