@@ -15,9 +15,9 @@ repo = 'vim-scripts/Gist.vim'
 [[plugins]]
 repo = 'vim-scripts/matchit.zip'
 hook_add = '''
-  runtime macros/matchit.vim 
-  let b:match_words = &matchpairs . "\<if\>:\<end if\>,\<if\>:\<endif\>" 
-  let b:match_ignorecase = 1 
+  runtime macros/matchit.vim
+  let b:match_words = &matchpairs . "\<if\>:\<end if\>,\<if\>:\<endif\>"
+  let b:match_ignorecase = 1
 '''
 
 [[plugins]]
@@ -31,13 +31,13 @@ repo = 'vim-scripts/Justify'
 hook_add = 'runtime macros/justify.vim'
 
 [[plugins]]
-repo = 'Rykka/clickable.vim' 
+repo = 'Rykka/clickable.vim'
 
 [[plugins]]
-repo = 'Rykka/clickable-things' 
+repo = 'Rykka/clickable-things'
 
 [[plugins]]
-repo = 'Rykka/os.vim' 
+repo = 'Rykka/os.vim'
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
