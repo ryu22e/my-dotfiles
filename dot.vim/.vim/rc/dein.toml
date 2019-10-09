@@ -120,9 +120,9 @@ hook_add = '''
   let g:syntastic_check_on_open = 1
   let g:syntastic_check_on_wq = 0
   let g:syntastic_python_checkers = ['flake8']
-  let flake8_config_path = expand(getenv('VIM_FLAKE8_CONFIG_PATH'))
-  if filereadable(flake8_config_path)
-    let g:syntastic_python_flake8_args = '--config=' . flake8_config_path
+  let s:flake8_config_path = expand($VIM_FLAKE8_CONFIG_PATH)
+  if filereadable(s:flake8_config_path)
+    let g:syntastic_python_flake8_args = '--config=' . s:flake8_config_path
   endif
   let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
   let g:syntastic_rst_checkers = ['rstcheck']
