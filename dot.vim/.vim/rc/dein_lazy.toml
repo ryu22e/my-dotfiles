@@ -160,13 +160,9 @@ repo = 'derekwyatt/vim-scala'
 on_ft = ['scala']
 
 [[plugins]]
-repo = 'fatih/vim-go'
+repo = 'arp242/gopher.vim'
 on_ft = ['go', 'gohtmltmpl']
 hook_add = '''
-  auto BufWritePre *.go GoFmt
-  au FileType go nmap <leader>b <Plug>(go-build)
-  au FileType go nmap <leader>t <Plug>(go-test)
-  au FileType go nmap <leader>c <Plug>(go-coverage)
 '''
 
 [[plugins]]
