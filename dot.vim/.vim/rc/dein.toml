@@ -126,7 +126,7 @@ hook_add = '''
   endif
   let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
   let g:syntastic_rst_checkers = ['rstcheck']
-  let g:syntastic_go_checkers = ['govet', 'go']
+  let g:syntastic_go_checkers = ['staticcheck', 'govet', 'go']
   let g:go_list_type = "quickfix"
   let g:syntastic_typescript_checkers = ['tslint', 'tsc']
   let g:syntastic_rust_checkers = ['cargo']
