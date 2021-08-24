@@ -11,39 +11,43 @@ let g:python_host_prog = expand('~/.venv/nvim/python2/bin/python')
 let g:python3_host_prog = expand('~/.venv/nvim/python3/bin/python')
 
 if has('vim_starting')
+    "dein Scripts-----------------------------
     if &compatible
         set nocompatible
     endif
 
-    if &runtimepath !~# '/dein.vim'
-        if !isdirectory(s:dein_repo_dir)
-          execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
-        endif
-        execute 'set runtimepath^=' . s:dein_repo_dir
+    execute 'set runtimepath+=' . s:dein_repo_dir
+
+    call dein#begin(s:dein_dir)
+
+    " Let dein manage dein
+    call dein#add(s:dein_repo_dir)
+
+    " Add or remove your plugins here like this:
+    " call dein#add('~/.cache/dein/repos/github.com/Shougo/neocomplete.vim')
+    call dein#add('tomasr/molokai')
+    let s:toml = g:rc_dir . '/dein.toml'
+    let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
+    call dein#load_toml(s:toml, {'lazy': 0})
+    call dein#load_toml(s:lazy_toml, {'lazy': 1})
+
+    call dein#end()
+    call dein#save_state()
+
+    filetype plugin indent on
+    syntax enable
+
+    " If you want to install not installed plugins on startup.
+    if dein#check_install()
+       call dein#install()
     endif
-endif
 
-if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
-  call dein#add('tomasr/molokai')
-
-  let s:toml = g:rc_dir . '/dein.toml'
-  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
-  call dein#load_toml(s:toml, {'lazy': 0})
-  call dein#load_toml(s:lazy_toml, {'lazy': 1})
-
-  call dein#end()
-  call dein#save_state()
-endif
-
-if dein#check_install()
-  call dein#install()
+    "End dein Scripts-------------------------
 endif
 
 " osyo-manga/vim-over
 nnoremap <silent> <Leader>m :OverCommandLine<CR>%s/
 
-syntax on
 set laststatus=2
 set number
 set autoindent
@@ -67,7 +71,6 @@ set ruler
 set hlsearch
 highlight zenkakuda ctermbg=7
 match zenkakuda /　/
-filetype plugin indent on
 
 " colorscheme
 if has('nvim')
