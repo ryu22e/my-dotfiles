@@ -40,7 +40,7 @@ repo = 'Rykka/clickable-things'
 repo = 'Rykka/os.vim'
 
 [[plugins]]
-repo = 'vim-airline/vim-airline'
+repo = 'itchyny/lightline.vim'
 gui = 1
 
 [[plugins]]
