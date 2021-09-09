@@ -1,4 +1,3 @@
-# Setup vimproc on windows
+## Setup Shougo/dein.vim
 
-1. Donwload vimproc_win*.dll from [Releases · Shougo/vimproc.vim](https://github.com/Shougo/vimproc.vim/releases).
-2. Copy vimproc_win*.dll to `%HOME%/.cache/dein/.dein/lib`.
+Read the [READNE.md](https://github.com/Shougo/dein.vim#quick-start) of [Shougo/dein.vim](https://github.com/Shougo/dein.vim).
