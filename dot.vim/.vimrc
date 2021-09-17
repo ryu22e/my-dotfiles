@@ -211,5 +211,14 @@ endfun
 
 autocmd BufEnter *.py call SetAppDir()
 
+" Setting the appropriate file type for Django template files
+fun! SetFiletypeForDjangoTemplate()
+    if filereadable(expand(getcwd() . '/manage.py'))
+        set filetype=htmldjango
+    endif
+endfun
+
+autocmd BufEnter *.html call SetFiletypeForDjangoTemplate()
+
 " Open new tab
 nnoremap <silent> <Leader>t :tabnew<CR>
