@@ -10,6 +10,7 @@ ln -s $(pwd)/dot.vim/.vim $HOME/
 ln -s $(pwd)/dot.vim/.vimrc $HOME/
 ln -s $(pwd)/dot.vim/.gvimrc $HOME/
 ln -s $(pwd)/dot.vim/.vimrc $HOME/.config/nvim/init.vim
+ln -s $(pwd)/dot.vim/.vim/ftplugin/ $HOME/.config/nvim/ftplugin
 
 ln -s $(pwd)/dot.ack/.ackrc $HOME/
 
