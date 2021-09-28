@@ -32,6 +32,12 @@ compinit
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion::complete:*' use-cache 1
 setopt list_packed
+if [[ $(type brew)  ]]; then
+    FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+    autoload -Uz compinit
+    compinit
+fi
 
 # history ignore space
 #
