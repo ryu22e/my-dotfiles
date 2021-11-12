@@ -84,11 +84,6 @@ if [[ $(type pip3) ]]; then
     eval "$(pip3 completion --zsh)"
 fi
 
-# pipenv completion
-if [[ $(type pipenv) ]]; then
-    eval "$(pipenv --completion)"
-fi
-
 # hub
 if [[ $(type hub) ]]; then
   eval "$(hub alias -s)"
