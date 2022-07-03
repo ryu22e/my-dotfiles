@@ -32,7 +32,7 @@ compinit
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion::complete:*' use-cache 1
 setopt list_packed
-if [[ $(type brew)  ]]; then
+if type brew > /dev/null 2>&1; then
     FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 
     autoload -Uz compinit
@@ -72,7 +72,7 @@ setopt list_packed
 setopt nolistbeep
 
 # rbenv
-if [[ $(type rbenv)  ]]; then
+if type rbenv > /dev/null 2>&1; then
     eval "$(rbenv init -)"
 fi
 
@@ -80,12 +80,12 @@ fi
 [[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
 
 # pip completion
-if [[ $(type pip3) ]]; then
+if type pip3 > /dev/null 2>&1; then
     eval "$(pip3 completion --zsh)"
 fi
 
 # hub
-if [[ $(type hub) ]]; then
+if type hub > /dev/null 2>&1; then
   eval "$(hub alias -s)"
 fi
 
@@ -273,7 +273,7 @@ show_virtual_env() {
 PS1='$(show_virtual_env)'$PS1
 
 # direnv
-if [[ $(type direnv) ]]; then
+if type direnv > /dev/null 2>&1; then
     eval "$(direnv hook zsh)"
 fi
 
@@ -282,11 +282,11 @@ CARGO_ENV_PATH=${HOME}/.cargo/env
 if [[ -s $CARGO_ENV_PATH ]]; then
     source $CARGO_ENV_PATH
 fi
-if [[ $(type rustc) ]]; then
+if type rustc > /dev/null 2>&1; then
     export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 fi
 
 # nodenv
-if [[ $(type nodenv) ]]; then
+if type nodenv > /dev/null 2>&1; then
     eval "$(nodenv init -)"
 fi
