@@ -23,6 +23,23 @@ repo = 'vim-denops/denops.vim'
 if = '''executable('deno')'''
 
 [[plugins]]
+repo = 'Shougo/ddc-around'
+if = '''executable('deno')'''
+depends = ['Shougo/ddc.vim']
+hook_add = '''
+  " Use around source.
+  call ddc#custom#patch_global('sources', ['around'])
+
+  " Change source options
+  call ddc#custom#patch_global('sourceOptions', {
+        \ 'around': {'mark': 'A'},
+        \ })
+  call ddc#custom#patch_global('sourceParams', {
+        \ 'around': {'maxSize': 500},
+        \ })
+'''
+
+[[plugins]]
 repo = 'Shougo/unite.vim'
 if = '''!has("nvim")'''
 on_cmd = ['Unite']
