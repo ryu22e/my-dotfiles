@@ -87,16 +87,6 @@ on_ft = ['python', 'htmldjango']
 on_cmd = ['Dadmin', 'Dmodels', 'Dsettings', 'Dtests', 'Durls', 'Dviews', 'Drunserver', 'Dr', 'Dsyncdb', 'Dsy', 'Dshell', 'Dsh', 'Ddbshell']
 
 [[plugins]]
-repo = 'python-mode/python-mode'
-on_ft = ['python']
-rev = 'develop'
-hook_add = '''
-  let g:pymode_python = 'python3'
-  let g:pymode_rope = 1
-  let g:pymode_rope_rename_bind = '<C-c>rr'
-'''
-
-[[plugins]]
 repo = 'derekwyatt/vim-scala'
 on_ft = ['scala']
 
