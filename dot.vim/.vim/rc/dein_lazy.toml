@@ -84,11 +84,6 @@ repo = 'williamboman/nvim-lsp-installer'
 on_source = 'nvim-lspconfig'
 
 [[plugins]]
-repo = 'Shougo/unite.vim'
-if = '''!has("nvim")'''
-on_cmd = ['Unite']
-
-[[plugins]]
 repo = 'mattn/emmet-vim'
 on_ft = ['html', 'htmldjango', 'smarty']
 
