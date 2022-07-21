@@ -48,22 +48,22 @@ hook_add = '''
 [[plugins]]
 repo = 'Shougo/ddc-around'
 if = '''executable('deno')'''
-depends = ['Shougo/ddc.vim']
+on_source = ['Shougo/ddc.vim']
 
 [[plugins]]
 repo = 'Shougo/ddc-matcher_head'
 if = '''executable('deno')'''
-depends = ['Shougo/ddc.vim', 'Shougo/ddc-around']
+on_source = ['Shougo/ddc.vim']
 
 [[plugins]]
 repo = 'Shougo/ddc-sorter_rank'
 if = '''executable('deno')'''
-depends = ['Shougo/ddc.vim']
+on_source = ['Shougo/ddc.vim']
 
 [[plugins]]
 repo = 'Shougo/ddc-nvim-lsp'
 if = '''executable('deno')'''
-depends = ['Shougo/ddc.vim']
+on_source = ['Shougo/ddc.vim']
 
 [[plugins]]
 repo = 'Shougo/unite.vim'
