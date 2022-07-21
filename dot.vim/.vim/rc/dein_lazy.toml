@@ -30,6 +30,7 @@ hook_add = '''
         \ 'around': {'mark': 'A'},
         \ '_': {
         \   'matchers': ['matcher_head'],
+        \   'sorters': ['sorter_rank'],
         \ },
         \ })
   call ddc#custom#patch_global('sourceParams', {
@@ -48,6 +49,11 @@ depends = ['Shougo/ddc.vim']
 repo = 'Shougo/ddc-matcher_head'
 if = '''executable('deno')'''
 depends = ['Shougo/ddc.vim', 'Shougo/ddc-around']
+
+[[plugins]]
+repo = 'Shougo/ddc-sorter_rank'
+if = '''executable('deno')'''
+depends = ['Shougo/ddc.vim']
 
 [[plugins]]
 repo = 'Shougo/unite.vim'
