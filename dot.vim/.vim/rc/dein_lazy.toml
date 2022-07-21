@@ -67,6 +67,23 @@ if = '''executable('deno')'''
 on_source = ['Shougo/ddc.vim']
 
 [[plugins]]
+repo = 'neovim/nvim-lspconfig'
+on_event = 'BufEnter'
+hook_source= '''
+lua << EOF
+local lsp_installer = require("nvim-lsp-installer")
+lsp_installer.on_server_ready(function(server)
+  local opts = {}
+  server:setup(opts)
+end)
+EOF
+'''
+
+[[plugins]]
+repo = 'williamboman/nvim-lsp-installer'
+on_source = 'nvim-lspconfig'
+
+[[plugins]]
 repo = 'Shougo/unite.vim'
 if = '''!has("nvim")'''
 on_cmd = ['Unite']
