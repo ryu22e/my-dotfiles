@@ -21,11 +21,6 @@ depends = ['vim-denops/denops.vim']
 [[plugins]]
 repo = 'vim-denops/denops.vim'
 if = '''executable('deno')'''
-
-[[plugins]]
-repo = 'Shougo/ddc-around'
-if = '''executable('deno')'''
-depends = ['Shougo/ddc.vim']
 hook_add = '''
   " Use around source.
   call ddc#custom#patch_global('sources', ['around'])
@@ -33,23 +28,26 @@ hook_add = '''
   " Change source options
   call ddc#custom#patch_global('sourceOptions', {
         \ 'around': {'mark': 'A'},
+        \ '_': {
+        \   'matchers': ['matcher_head'],
+        \ },
         \ })
   call ddc#custom#patch_global('sourceParams', {
         \ 'around': {'maxSize': 500},
         \ })
+
+  call ddc#enable()
 '''
+
+[[plugins]]
+repo = 'Shougo/ddc-around'
+if = '''executable('deno')'''
+depends = ['Shougo/ddc.vim']
 
 [[plugins]]
 repo = 'Shougo/ddc-matcher_head'
 if = '''executable('deno')'''
 depends = ['Shougo/ddc.vim', 'Shougo/ddc-around']
-hook_add = '''
-  call ddc#custom#patch_global('sourceOptions', {
-        \ '_': {
-        \   'matchers': ['matcher_head'],
-        \ }
-        \})
-'''
 
 [[plugins]]
 repo = 'Shougo/unite.vim'
