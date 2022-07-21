@@ -23,11 +23,15 @@ repo = 'vim-denops/denops.vim'
 if = '''executable('deno')'''
 hook_add = '''
   " Use around source.
-  call ddc#custom#patch_global('sources', ['around'])
+  call ddc#custom#patch_global('sources', ['around', 'nvim-lsp'])
 
   " Change source options
   call ddc#custom#patch_global('sourceOptions', {
         \ 'around': {'mark': 'A'},
+        \ 'nvim-lsp': {
+        \   'mark': 'lsp',
+        \   'forceCompletionPattern': '\.\w*|:\w*|->\w*',
+        \ },
         \ '_': {
         \   'matchers': ['matcher_head'],
         \   'sorters': ['sorter_rank'],
@@ -35,6 +39,7 @@ hook_add = '''
         \ })
   call ddc#custom#patch_global('sourceParams', {
         \ 'around': {'maxSize': 500},
+        \ 'nvim-lsp': { 'kindLabels': { 'Class': 'c' } },
         \ })
 
   call ddc#enable()
@@ -52,6 +57,11 @@ depends = ['Shougo/ddc.vim', 'Shougo/ddc-around']
 
 [[plugins]]
 repo = 'Shougo/ddc-sorter_rank'
+if = '''executable('deno')'''
+depends = ['Shougo/ddc.vim']
+
+[[plugins]]
+repo = 'Shougo/ddc-nvim-lsp'
 if = '''executable('deno')'''
 depends = ['Shougo/ddc.vim']
 
