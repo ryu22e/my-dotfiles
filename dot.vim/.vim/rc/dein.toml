@@ -118,10 +118,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'honza/vim-snippets'
-gui = 1
-
-[[plugins]]
 repo = 'Konfekt/FastFold'
 
 [[plugins]]
