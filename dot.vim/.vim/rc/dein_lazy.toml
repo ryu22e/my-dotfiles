@@ -107,19 +107,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'davidhalter/jedi-vim'
-on_ft = ['python']
-if = '''!has("nvim") && has('python')'''
-hook_add = '''
-  autocmd FileType python setlocal omnifunc=jedi#completions
-  let g:jedi#auto_vim_configuration = 0
-  if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns = {}
-  endif
-  let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*' " enable quickrun let g:jedi#rename_command = "" let g:jedi#pydoc = ""
-'''
-
-[[plugins]]
 repo = 'jmcantrell/vim-virtualenv'
 on_ft = ['python']
 if = '''executable('virtualenv')'''
