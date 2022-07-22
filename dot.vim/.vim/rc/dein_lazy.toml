@@ -60,22 +60,22 @@ if = '''executable('deno')'''
 [[plugins]]
 repo = 'Shougo/ddc-around'
 if = '''executable('deno')'''
-on_source = ['Shougo/ddc.vim']
+on_source = ['ddc.vim']
 
 [[plugins]]
 repo = 'Shougo/ddc-matcher_head'
 if = '''executable('deno')'''
-on_source = ['Shougo/ddc.vim']
+on_source = ['ddc.vim']
 
 [[plugins]]
 repo = 'Shougo/ddc-sorter_rank'
 if = '''executable('deno')'''
-on_source = ['Shougo/ddc.vim']
+on_source = ['ddc.vim']
 
 [[plugins]]
 repo = 'Shougo/ddc-nvim-lsp'
 if = '''executable('deno')'''
-on_source = ['Shougo/ddc.vim']
+on_source = ['ddc.vim']
 
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
