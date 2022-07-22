@@ -17,7 +17,7 @@ hook_add = '''
 repo = 'Shougo/ddc.vim'
 if = '''executable('deno')'''
 on_event = 'InsertEnter'
-depends = ['vim-denops/denops.vim']
+depends = ['denops.vim']
 hook_source = '''
   " Use around source.
   call ddc#custom#patch_global('sources', ['around', 'nvim-lsp'])
