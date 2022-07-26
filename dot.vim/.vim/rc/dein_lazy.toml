@@ -205,3 +205,8 @@ hook_add = '''
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
 on_cmd = ['IndentGuidesEnable', 'IndentGuidesDisable', 'IndentGuidesToggle']
+
+[[plugins]]
+repo = 'Shougo/ddu.vim'
+if = '''executable('deno')'''
+depends = ['denops.vim']
