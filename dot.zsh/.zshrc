@@ -3,7 +3,7 @@ autoload -U add-zsh-hook
 compinit
 
 # zplug
-export ZPLUG_HOME=/usr/local/opt/zplug
+export ZPLUG_HOME=/opt/homebrew/opt/zplug
 if [ ! -d $ZPLUG_HOME ]; then
     export ZPLUG_HOME=$HOME/.zplug/init.zsh
 fi
