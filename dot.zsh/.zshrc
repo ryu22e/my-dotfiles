@@ -5,7 +5,7 @@ compinit
 # zplug
 export ZPLUG_HOME=/opt/homebrew/opt/zplug
 if [ ! -d $ZPLUG_HOME ]; then
-    export ZPLUG_HOME=$HOME/.zplug/init.zsh
+    export ZPLUG_HOME=$HOME/.zplug
 fi
 source $ZPLUG_HOME/init.zsh
 
