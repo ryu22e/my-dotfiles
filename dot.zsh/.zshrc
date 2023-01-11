@@ -84,11 +84,6 @@ if type pip3 > /dev/null 2>&1; then
     eval "$(pip3 completion --zsh)"
 fi
 
-# hub
-if type hub > /dev/null 2>&1; then
-  eval "$(hub alias -s)"
-fi
-
 # virtualenvwrapper
 VIRTUALENVWRAPPER_PATH=`which virtualenvwrapper.sh`
 if [[ -s $VIRTUALENVWRAPPER_PATH ]]; then
