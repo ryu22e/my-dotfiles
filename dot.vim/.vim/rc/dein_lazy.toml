@@ -15,6 +15,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'Shougo/ddc.vim'
+rev = 'v3.4.0'
 if = '''executable('deno')'''
 on_event = 'InsertEnter'
 depends = ['denops.vim']
