@@ -230,6 +230,7 @@ on_cmd = ['IndentGuidesEnable', 'IndentGuidesDisable', 'IndentGuidesToggle']
 
 [[plugins]]
 repo = 'Shougo/ddu.vim'
+rev = 'v2.2.0'
 if = '''executable('deno')'''
 depends = ['denops.vim']
 hook_add = '''
