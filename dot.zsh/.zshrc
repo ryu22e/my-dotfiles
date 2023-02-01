@@ -84,6 +84,12 @@ if type pip3 > /dev/null 2>&1; then
     eval "$(pip3 completion --zsh)"
 fi
 
+# 1Password CLI
+OP_PLUGINS_SH_PATH=${HOME}/.config/op/plugins.sh
+if [[ -s $OP_PLUGINS_SH_PATH ]]; then
+    source $OP_PLUGINS_SH_PATH
+fi
+
 # virtualenvwrapper
 VIRTUALENVWRAPPER_PATH=`which virtualenvwrapper.sh`
 if [[ -s $VIRTUALENVWRAPPER_PATH ]]; then
