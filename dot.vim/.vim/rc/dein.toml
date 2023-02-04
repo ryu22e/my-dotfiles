@@ -128,3 +128,7 @@ repo = 'bronson/vim-trailing-whitespace'
 
 [[plugins]]
 repo = 'prabirshrestha/async.vim'
+
+[[plugins]]
+repo = 'simeji/winresizer'
+rev = 'v1.1.1'
