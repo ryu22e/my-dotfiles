@@ -125,6 +125,7 @@ repo = 'justinmk/vim-dirvish'
 
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
+rev = '1.0'
 
 [[plugins]]
 repo = 'prabirshrestha/async.vim'
