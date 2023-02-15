@@ -222,3 +222,6 @@ autocmd BufEnter *.html call SetFiletypeForDjangoTemplate()
 
 " Open new tab
 nnoremap <silent> <Leader>t :tabnew<CR>
+
+" Terminal
+tnoremap <Esc> <C-\><C-n>
