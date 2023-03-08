@@ -153,8 +153,6 @@ on_ft = ['scala']
 [[plugins]]
 repo = 'arp242/gopher.vim'
 on_ft = ['go', 'gohtmltmpl']
-hook_add = '''
-'''
 
 [[plugins]]
 repo = 'jmcantrell/vim-virtualenv'
