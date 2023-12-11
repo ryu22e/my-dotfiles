@@ -90,13 +90,6 @@ if [[ -s $OP_PLUGINS_SH_PATH ]]; then
     source $OP_PLUGINS_SH_PATH
 fi
 
-# virtualenvwrapper
-VIRTUALENVWRAPPER_PATH=`which virtualenvwrapper.sh`
-if [[ -s $VIRTUALENVWRAPPER_PATH ]]; then
-    export WORKON_HOME=$HOME/.virtualenvs
-    source $VIRTUALENVWRAPPER_PATH
-fi
-
 # ngrok
 if command -v ngrok &>/dev/null; then
     eval "$(ngrok completion)"
