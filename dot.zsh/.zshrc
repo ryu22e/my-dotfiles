@@ -80,9 +80,9 @@ fi
 [[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
 
 # pip completion
-if type pip3 > /dev/null 2>&1; then
-    eval "$(pip3 completion --zsh)"
-fi
+# if type pip3 > /dev/null 2>&1; then
+#     eval "$(pip3 completion --zsh)"
+# fi
 
 # 1Password CLI
 OP_PLUGINS_SH_PATH=${HOME}/.config/op/plugins.sh
@@ -95,6 +95,11 @@ VIRTUALENVWRAPPER_PATH=`which virtualenvwrapper.sh`
 if [[ -s $VIRTUALENVWRAPPER_PATH ]]; then
     export WORKON_HOME=$HOME/.virtualenvs
     source $VIRTUALENVWRAPPER_PATH
+fi
+
+# ngrok
+if command -v ngrok &>/dev/null; then
+    eval "$(ngrok completion)"
 fi
 
 ## Environment variable configuration
@@ -291,3 +296,8 @@ fi
 if type nodenv > /dev/null 2>&1; then
     eval "$(nodenv init -)"
 fi
+
+# 1Password CLI
+function op-items-to-json() {
+  op item get --format json $1 | jq -r '.fields[] | select(.value) | (.label) + "=\"" + (.reference) + "\""'
+}
