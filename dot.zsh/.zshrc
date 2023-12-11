@@ -2,6 +2,20 @@ autoload -U compinit
 autoload -U add-zsh-hook
 compinit
 
+# Set path
+typeset -U path PATH
+path=(
+  /opt/homebrew/bin(N-/)
+  /opt/homebrew/sbin(N-/)
+  /usr/bin
+  /usr/sbin
+  /bin
+  /sbin
+  /usr/local/bin(N-/)
+  /usr/local/sbin(N-/)
+  /Library/Apple/usr/bin
+)
+
 # zplug
 export ZPLUG_HOME=/opt/homebrew/opt/zplug
 if [ ! -d $ZPLUG_HOME ]; then
