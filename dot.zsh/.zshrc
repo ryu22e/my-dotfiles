@@ -86,6 +86,11 @@ if command -v ngrok &>/dev/null; then
     eval "$(ngrok completion)"
 fi
 
+Z_PATH=/opt/homebrew/etc/profile.d/z.sh
+if [[ -s $Z_PATH ]]; then
+    source $Z_PATH
+fi
+
 ## Environment variable configuration
 #
 # LANG
