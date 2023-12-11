@@ -16,29 +16,6 @@ path=(
   /Library/Apple/usr/bin
 )
 
-# zplug
-export ZPLUG_HOME=/opt/homebrew/opt/zplug
-if [ ! -d $ZPLUG_HOME ]; then
-    export ZPLUG_HOME=$HOME/.zplug
-fi
-source $ZPLUG_HOME/init.zsh
-
-zplug "zsh-users/zsh-completions"
-zplug "marzocchi/zsh-notify"
-zplug "Tarrasch/zsh-autoenv"
-zplug "rupa/z", use:z.sh
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-# Then, source plugins and add commands to $PATH
-zplug load
-
 # complement
 fpath=($HOME/.zsh/functions $fpath)
 autoload -U compinit promptinit
