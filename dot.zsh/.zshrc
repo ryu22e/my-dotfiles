@@ -290,3 +290,9 @@ fi
 function op-items-to-json() {
   op item get --format json $1 | jq -r '.fields[] | select(.value) | (.label) + "=\"" + (.reference) + "\""'
 }
+
+# .zshrc.local
+LOCAL_ZRHRC=${HOME}/.zshrc.local
+if [[ -s $LOCAL_ZRHRC ]]; then
+  source $LOCAL_ZRHRC
+fi
