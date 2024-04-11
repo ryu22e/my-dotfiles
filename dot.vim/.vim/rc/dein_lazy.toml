@@ -155,11 +155,6 @@ repo = 'arp242/gopher.vim'
 on_ft = ['go', 'gohtmltmpl']
 
 [[plugins]]
-repo = 'jmcantrell/vim-virtualenv'
-on_ft = ['python']
-if = '''executable('virtualenv')'''
-
-[[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = ['toml']
 
