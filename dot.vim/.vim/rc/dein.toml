@@ -19,10 +19,6 @@ repo = 'vim-scripts/speeddating.vim'
 repo = 'vim-scripts/abolish.vim'
 
 [[plugins]]
-repo = 'vim-scripts/Justify'
-hook_add = 'runtime macros/justify.vim'
-
-[[plugins]]
 repo = 'Rykka/clickable.vim'
 
 [[plugins]]
