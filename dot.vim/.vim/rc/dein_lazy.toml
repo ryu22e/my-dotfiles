@@ -138,15 +138,6 @@ repo = 'gu-fan/riv.vim'
 on_ft = ['rst']
 
 [[plugins]]
-repo = 'tell-k/vim-autopep8'
-if = '''executable('autopep8')'''
-on_ft = ['python']
-on_cmd = ['Autopep8']
-hook_add = '''
-  let g:autopep8_disable_show_diff = 1
-'''
-
-[[plugins]]
 repo = 'vim-scripts/django.vim'
 on_ft = ['python']
 
