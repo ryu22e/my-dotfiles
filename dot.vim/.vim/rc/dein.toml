@@ -114,7 +114,8 @@ repo = 'tsukkee/unite-tag'
 repo = 'tomtom/tcomment_vim'
 
 [[plugins]]
-repo = 'thinca/vim-localrc'
+repo = 'embear/vim-localvimrc'
+rev = 'v.3.1.0'
 
 [[plugins]]
 repo = 'taku-o/vim-toggle'
