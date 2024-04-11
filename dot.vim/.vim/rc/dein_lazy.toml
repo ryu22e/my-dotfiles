@@ -130,10 +130,6 @@ repo = 'mattn/emmet-vim'
 on_ft = ['html', 'htmldjango', 'smarty']
 
 [[plugins]]
-repo = 'osyo-manga/vim-over'
-on_cmd = ['OverCommandLine']
-
-[[plugins]]
 repo = 'gu-fan/riv.vim'
 on_ft = ['rst']
 
