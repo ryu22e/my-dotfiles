@@ -44,6 +44,34 @@ repo = 'itchyny/lightline.vim'
 gui = 1
 
 [[plugins]]
+repo = 'maximbaz/lightline-ale'
+gui = 1
+depends = ['itchyny/lightline.vim', 'dense-analysis/ale']
+hook_add = '''
+let g:lightline = {}
+
+let g:lightline.component_expand = {
+  \  'linter_checking': 'lightline#ale#checking',
+  \  'linter_infos': 'lightline#ale#infos',
+  \  'linter_warnings': 'lightline#ale#warnings',
+  \  'linter_errors': 'lightline#ale#errors',
+  \  'linter_ok': 'lightline#ale#ok',
+  \ }
+let g:lightline.component_type = {
+  \     'linter_checking': 'right',
+  \     'linter_infos': 'right',
+  \     'linter_warnings': 'warning',
+  \     'linter_errors': 'error',
+  \     'linter_ok': 'right',
+  \ }
+let g:lightline.active = {
+  \ 'right': [ [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ],
+  \            [ 'lineinfo' ],
+  \            [ 'percent' ],
+  \            [ 'fileformat', 'fileencoding', 'filetype'] ] }
+'''
+
+[[plugins]]
 repo = 'ynkdir/vim-funlib'
 hook_add = '''
   function! Random(a, b)
@@ -95,26 +123,27 @@ repo = 'taku-o/vim-toggle'
 repo = 'rhysd/clever-f.vim'
 
 [[plugins]]
-repo = 'vim-syntastic/syntastic'
+repo = 'dense-analysis/ale'
+rev = 'v3.3.0'
 hook_add = '''
-  set statusline+=%#warningmsg#
-  set statusline+=%{SyntasticStatuslineFlag()}
-  set statusline+=%*
-  let g:syntastic_always_populate_loc_list = 1
-  let g:syntastic_auto_loc_list = 1
-  let g:syntastic_check_on_open = 1
-  let g:syntastic_check_on_wq = 0
-  let g:syntastic_python_checkers = ['flake8']
+  " Basic ALE configuration settings
+  let g:ale_linters_explicit = 1  " Only use linters explicitly specified in the configuration
+  let g:ale_fix_on_save = 1       " Automatically fix problems on file save if possible
+  let g:ale_sign_column_always = 1  " Always show the sign column
+  let g:ale_completion_enabled = 1  " Enable ALE's completion
+
+  let g:ale_linters = {
+  \   'python': ['flake8'],
+  \   'php': ['php', 'phpcs', 'phpmd'],
+  \   'go': ['golint', 'govet', 'staticcheck'],
+  \   'typescript': ['tslint', 'tsc'],
+  \   'rust': ['cargo'],
+  \}
+  let g:ale_python_flake8_executable = 'flake8'
   let s:flake8_config_path = expand($VIM_FLAKE8_CONFIG_PATH)
   if filereadable(s:flake8_config_path)
-    let g:syntastic_python_flake8_args = '--config=' . s:flake8_config_path
+    let g:ale_python_flake8_options = '--config=' . s:flake8_config_path
   endif
-  let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
-  let g:syntastic_rst_checkers = ['rstcheck']
-  let g:syntastic_go_checkers = ['staticcheck', 'govet', 'go']
-  let g:go_list_type = "quickfix"
-  let g:syntastic_typescript_checkers = ['tslint', 'tsc']
-  let g:syntastic_rust_checkers = ['cargo']
 '''
 
 [[plugins]]
