@@ -13,14 +13,6 @@ hook_add = '''
 repo = 'vim-scripts/Gist.vim'
 
 [[plugins]]
-repo = 'vim-scripts/matchit.zip'
-hook_add = '''
-  runtime macros/matchit.vim
-  let b:match_words = &matchpairs . "\<if\>:\<end if\>,\<if\>:\<endif\>"
-  let b:match_ignorecase = 1
-'''
-
-[[plugins]]
 repo = 'vim-scripts/speeddating.vim'
 
 [[plugins]]
