@@ -229,3 +229,24 @@ tnoremap <Esc> <C-\><C-n>
 " GitHub Copilot
 imap <silent><script><expr> <C-e> copilot#Accept('\<CR>')
 let g:copilot_no_tab_map = v:true
+
+if exists("g:neovide")
+  " Save
+  nnoremap <D-s> :w<CR>
+  " Copy
+  vnoremap <D-c> "+y
+  " Paste normal mode
+  nnoremap <D-v> "+P
+  " Paste visual mode
+  vnoremap <D-v> "+P
+  " Paste command mode
+  cnoremap <D-v> <C-R>+
+  " Paste insert mode
+  inoremap <D-v> <ESC>l"+Pli
+endif
+
+" Allow clipboard copy paste in Vim (not only Neovim)
+noremap <D-v> "+p<CR>
+noremap! <D-v> <C-R>+
+tnoremap <D-v> <C-R>+
+vnoremap <D-v> <C-R>+
