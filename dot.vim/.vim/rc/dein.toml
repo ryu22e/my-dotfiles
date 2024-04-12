@@ -118,6 +118,7 @@ rev = '5.3'
 
 [[plugins]]
 repo = 'justinmk/vim-dirvish'
+rev = '1.0'
 
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
