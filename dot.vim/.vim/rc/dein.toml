@@ -114,6 +114,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'Konfekt/FastFold'
+rev = '5.3'
 
 [[plugins]]
 repo = 'justinmk/vim-dirvish'
