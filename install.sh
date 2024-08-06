@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-mkdir -p $HOME/.config
+mkdir -p $HOME/.config/{nvim,direnv}
 
 ln -s $(pwd)/dot.zsh/.zsh $HOME/
 ln -s $(pwd)/dot.zsh/.zshrc $HOME/
