@@ -61,6 +61,7 @@ hook_source = '''
 
 [[plugins]]
 repo = 'vim-denops/denops.vim'
+rev = 'v7.0.2'
 if = '''executable('deno')'''
 
 [[plugins]]
