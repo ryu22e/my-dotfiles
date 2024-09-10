@@ -286,6 +286,11 @@ if type nodenv > /dev/null 2>&1; then
     eval "$(nodenv init -)"
 fi
 
+# uv
+if type uv > /dev/null 2>&1; then
+    eval "$(uv generate-shell-completion zsh)"
+fi
+
 # 1Password CLI
 function op-items-to-json() {
   op item get --format json $1 | jq -r '.fields[] | select(.value) | (.label) + "=\"" + (.reference) + "\""'
