@@ -100,17 +100,13 @@ hook_add = '''
   let g:ale_completion_enabled = 1  " Enable ALE's completion
 
   let g:ale_linters = {
-  \   'python': ['flake8'],
+  \   'python': ['ruff'],
   \   'php': ['php', 'phpcs', 'phpmd'],
   \   'go': ['golint', 'govet', 'staticcheck'],
   \   'typescript': ['tslint', 'tsc'],
   \   'rust': ['cargo'],
   \}
-  let g:ale_python_flake8_executable = 'flake8'
-  let s:flake8_config_path = expand($VIM_FLAKE8_CONFIG_PATH)
-  if filereadable(s:flake8_config_path)
-    let g:ale_python_flake8_options = '--config=' . s:flake8_config_path
-  endif
+  let g:ale_fixers = { '*': ['remove_trailing_lines', 'trim_whitespace'], 'python': ['ruff', 'black'], }
 '''
 
 [[plugins]]
