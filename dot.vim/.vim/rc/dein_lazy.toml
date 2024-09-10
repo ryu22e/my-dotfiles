@@ -33,7 +33,7 @@ EOF
   call ddc#custom#patch_global('ui', 'native')
 
   " Use around source.
-  call ddc#custom#patch_global('sources', ['around', 'lsp'])
+  call ddc#custom#patch_global('sources', ['around', 'lsp', 'rg'])
 
   " Change source options
   call ddc#custom#patch_global('sourceOptions', {
@@ -41,6 +41,10 @@ EOF
         \ 'lsp': {
         \    'mark': 'lsp',
         \    'forceCompletionPattern': '\.\w*|:\w*|->\w*',
+        \ },
+        \ 'rg': {
+        \   'mark': 'rg',
+        \   'minAutoCompleteLength': 4,
         \ },
         \ '_': {
         \   'matchers': ['matcher_head'],
@@ -100,6 +104,11 @@ on_source = ['ddc.vim']
 [[plugins]]
 repo = 'Shougo/ddc-source-lsp'
 if = '''executable('deno')'''
+on_source = ['ddc.vim']
+
+[[plugins]]
+repo = 'Shougo/ddc-source-rg'
+if = '''executable('deno') && executable('rg')'''
 on_source = ['ddc.vim']
 
 [[plugins]]
@@ -237,10 +246,6 @@ rev = 'v6.1.0'
 if = '''executable('deno')'''
 depends = ['denops.vim']
 hook_add = '''
-  call ddu#custom#patch_global({
-      \ 'ui': 'ff',
-      \ })
-
   "ddu-key-setting
   autocmd FileType ddu-ff call s:ddu_my_settings()
   function! s:ddu_my_settings() abort
