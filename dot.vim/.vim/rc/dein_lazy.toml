@@ -83,7 +83,7 @@ if = '''executable('deno')'''
 on_source = ['ddc.vim']
 
 [[plugins]]
-repo = 'Shougo/ddc-around'
+repo = 'Shougo/ddc-source-around'
 if = '''executable('deno')'''
 on_source = ['ddc.vim']
 
