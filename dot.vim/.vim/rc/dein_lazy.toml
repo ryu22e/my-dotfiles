@@ -306,8 +306,7 @@ hook_add = '''
 
 [[plugins]]
 repo='Shougo/ddu-commands.vim'
-depends = ['ddu.vim']
-on_cmd = ['Ddu']
+on_source = ['ddu.vim']
 if = '''executable('deno')'''
 
 [[plugins]]
