@@ -308,6 +308,7 @@ hook_add = '''
 repo='Shougo/ddu-commands.vim'
 depends = ['ddu.vim']
 on_cmd = ['Ddu']
+if = '''executable('deno')'''
 
 [[plugins]]
 repo='Shougo/ddu-ui-ff'
