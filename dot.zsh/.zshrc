@@ -67,9 +67,6 @@ if type rbenv > /dev/null 2>&1; then
     eval "$(rbenv init -)"
 fi
 
-# phpbrew
-[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
-
 # pip completion
 # if type pip3 > /dev/null 2>&1; then
 #     eval "$(pip3 completion --zsh)"
